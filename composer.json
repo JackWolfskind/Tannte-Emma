@@ -1,0 +1,16 @@
+{
+    "name": "gso/tante-emma",
+    "description": "MST Projekt from FIA51 (Georg Simon Ohm cgn)",
+    "license": "Open-Source",
+    "authors": [
+        {
+            "name": "Christian Ziermann",
+            "email": "fia51-ziermann@gso-koeln.de"
+        },
+        {
+            "name": "Lukas Prediger",
+            "email": "fia51-prediger@gso-koeln.de"
+        }
+    ],
+    "require": {}
+}

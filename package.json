@@ -1,0 +1,14 @@
+{
+  "name": "tannte-emma",
+  "version": "1.0.0",
+  "description": "MST Projekt from FIA51 (Georg Simon Ohm cgn)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
