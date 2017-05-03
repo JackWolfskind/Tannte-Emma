@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle;
+namespace Gso\TannteEmma;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
