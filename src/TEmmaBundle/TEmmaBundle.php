@@ -1,9 +1,9 @@
 <?php
 
-namespace Gso\TannteEmma;
+namespace TEmmaBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AppBundle extends Bundle
+class TEmmaBundle extends Bundle
 {
 }
