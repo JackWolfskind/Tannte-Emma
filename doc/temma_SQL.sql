@@ -14,6 +14,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 CREATE SCHEMA IF NOT EXISTS `temma` DEFAULT CHARACTER SET utf8 ;
 USE `temma` ;
 
+DROP TABLE Artikel;
+DROP TABLE Geschäfte;
+DROP TABLE Mitarbeiter;
+DROP TABLE Geschäftsart;
+DROP TABLE Warenkorb;
+DROP TABLE Kunde;
+
 -- -----------------------------------------------------
 -- Table `temma`.`Artikel`
 -- -----------------------------------------------------
@@ -144,6 +151,6 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-INSERT INTO Geschäftsart VALUES (artID = 0, artText = "Anlieferung");
-INSERT INTO Geschäftsart VALUES (artID = 1, artText = "Lieferverkauf");
-INSERT INTO Geschäftsart VALUES (artID = 2, artText = "Ladenverkauf");
+INSERT INTO Geschäftsart VALUES (0, "Anlieferung");
+INSERT INTO Geschäftsart VALUES (1, "Lieferverkauf");
+INSERT INTO Geschäftsart VALUES (2, "Ladenverkauf");
