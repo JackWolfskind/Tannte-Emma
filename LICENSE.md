@@ -12,3 +12,12 @@
 
   0. You just DO WHAT THE FUCK YOU WANT TO.
 
+this School-Project use
+
+Package-Tools:
+ - npm:
+ - composer
+Build-tool:
+ - gulp
+Template: AdminKTE: https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#license
+PHP Framework: Symfony: http://symfony.com/license

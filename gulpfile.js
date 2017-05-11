@@ -23,7 +23,7 @@ var src = 'app/Resources';
 var dist = 'web/public';
 var cache = 'var/cache/';
 
-gulp.task('build', 'Build everything in production mode.', [
+gulp.task('build', 'Build everything', [
     'css-adminlte',
     'css-bootstrap',
     'css-app'
@@ -54,8 +54,6 @@ gulp.task('css-adminlte', 'Compile all AdminLTE Less sources.', ['clean-css-admi
 
 gulp.task('css-app', 'Compile all application Less sources.', ['clean-css-app'], function () {
     return gulp.src(src + '/css/app.css')
-            // TODO Add Less compilation as soon as app.less is fixed (currently, app.less contains nested statements which,
-            // when compiled, make the sidebar menu appear strange).
             .pipe(concat('app.css'))
             .pipe(minify())
             .pipe(rename({suffix: '.min'}))
