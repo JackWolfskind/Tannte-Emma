@@ -10,5 +10,26 @@
   "license": "ISC",
   "dependencies": {
     "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "fs": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-help": "^1.6.1",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-less": "^3.3.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "less": "^2.7.2",
+    "merge": "^1.2.0",
+    "merge-stream": "^1.0.1",
+    "minify": "^2.0.14",
+    "minimist": "^1.2.0",
+    "path": "^0.12.7",
+    "pump": "^1.0.2",
+    "webpack": "^2.5.1",
+    "webpack-stream": "^3.2.0"
   }
 }
