@@ -9,7 +9,7 @@ npm install
 ``
 
 ``
-gulp build
+gulp
 ``
 
 ### Start Server
