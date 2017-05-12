@@ -13,6 +13,9 @@
   },
   "devDependencies": {
     "admin-lte": "^2.3.11",
+    "angular": "^1.6.4",
+    "angular-messages": "^1.6.4",
+    "angular-ui-bootstrap": "^2.5.0",
     "del": "^2.2.2",
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",

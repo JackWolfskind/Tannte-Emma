@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="box box">
+            <div class="box-header with-border">
+                <h2 class="box-title" >Products</h2>
+            </div>
+            <div class="box-body">
+                <table class="table table-hover">
+                    <tr>
+                        <th>NR</th>
+                        <th>Bezeichnung</th>
+                        <th>Preis</th>
+                        <th>Bestand</th>
+                    </tr>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product.getArtikelnr() }}</td>
+                            <td>{{ product.getArtikelbezeichnung() }}</td>
+                            <td>{{ product.getArtikelpreis() }} €</td>
+                            <td>{{ product.getArtikelbestand() }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

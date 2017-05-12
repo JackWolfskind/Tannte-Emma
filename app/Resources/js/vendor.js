@@ -1,7 +1,8 @@
 'use strict';
-
-global.$ = global.jQuery = require('jquery');
+global.jQuery = global.$ = require('jquery');
 require('bootstrap');
-require('angular-ui-bootstrap');
 require('admin-lte');
-
+require('angular');
+require('angular-ui-bootstrap');
+require('angular-messages');
+require('jquery-ui-bundle');
