@@ -14,12 +14,12 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 CREATE SCHEMA IF NOT EXISTS `temma` DEFAULT CHARACTER SET utf8 ;
 USE `temma` ;
 
-DROP TABLE Artikel;
-DROP TABLE Geschäfte;
-DROP TABLE Mitarbeiter;
-DROP TABLE Geschäftsart;
-DROP TABLE Warenkorb;
-DROP TABLE Kunde;
+DROP TABLE IF EXISTS Artikel;
+DROP TABLE IF EXISTS Geschaefte;
+DROP TABLE IF EXISTS Mitarbeiter;
+DROP TABLE IF EXISTS Geschaeftsart;
+DROP TABLE IF EXISTS Warenkorb;
+DROP TABLE IF EXISTS Kunde;
 
 -- -----------------------------------------------------
 -- Table `temma`.`Artikel`
@@ -47,9 +47,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `temma`.`Geschäftsart`
+-- Table `temma`.`Geschaeftsart`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `temma`.`Geschäftsart` (
+CREATE TABLE IF NOT EXISTS `temma`.`Geschaeftsart` (
   `ArtID` INT NOT NULL,
   `ArtBezeichnung` VARCHAR(45) NULL,
   PRIMARY KEY (`ArtID`))
@@ -70,30 +70,30 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `temma`.`Geschäfte`
+-- Table `temma`.`Geschaefte`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `temma`.`Geschäfte` (
-  `geschäftID` INT NOT NULL,
-  `Geschäftecol` VARCHAR(45) NULL,
+CREATE TABLE IF NOT EXISTS `temma`.`Geschaefte` (
+  `geschaeftID` INT NOT NULL,
+  `Geschaeftecol` VARCHAR(45) NULL,
   `Kunde_kundeNR` INT NOT NULL,
-  `Geschäftsart` INT NOT NULL,
+  `Geschaeftsart` INT NOT NULL,
   `Datum` VARCHAR(45) NULL,
   `angelegtVonMitarbeiter` INT NOT NULL,
-  PRIMARY KEY (`geschäftID`),
-  INDEX `fk_Geschäfte_Kunde_idx` (`Kunde_kundeNR` ASC),
-  INDEX `fk_Geschäfte_Geschäftsart1_idx` (`Geschäftsart` ASC),
-  INDEX `fk_Geschäfte_Mitarbeiter1_idx` (`angelegtVonMitarbeiter` ASC),
-  CONSTRAINT `fk_Geschäfte_Kunde`
+  PRIMARY KEY (`geschaeftID`),
+  INDEX `fk_Geschaefte_Kunde_idx` (`Kunde_kundeNR` ASC),
+  INDEX `fk_Geschaefte_Geschaeftsart1_idx` (`Geschaeftsart` ASC),
+  INDEX `fk_Geschaefte_Mitarbeiter1_idx` (`angelegtVonMitarbeiter` ASC),
+  CONSTRAINT `fk_Geschaefte_Kunde`
     FOREIGN KEY (`Kunde_kundeNR`)
     REFERENCES `temma`.`Kunde` (`kundeNR`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Geschäfte_Geschäftsart1`
-    FOREIGN KEY (`Geschäftsart`)
-    REFERENCES `temma`.`Geschäftsart` (`ArtID`)
+  CONSTRAINT `fk_Geschaefte_Geschaeftsart1`
+    FOREIGN KEY (`Geschaeftsart`)
+    REFERENCES `temma`.`Geschaeftsart` (`ArtID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Geschäfte_Mitarbeiter1`
+  CONSTRAINT `fk_Geschaefte_Mitarbeiter1`
     FOREIGN KEY (`angelegtVonMitarbeiter`)
     REFERENCES `temma`.`Mitarbeiter` (`mitarbeiterNR`)
     ON DELETE NO ACTION
@@ -105,18 +105,18 @@ ENGINE = InnoDB;
 -- Table `temma`.`Warenkorb`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `temma`.`Warenkorb` (
-  `geschäftID` INT NOT NULL,
+  `geschaeftID` INT NOT NULL,
   `artikelNR` INT NOT NULL,
   `artikelMenge` INT NULL,
-  PRIMARY KEY (`geschäftID`, `artikelNR`),
-  INDEX `fk_Geschäfte_has_Artikel_Artikel1_idx` (`artikelNR` ASC),
-  INDEX `fk_Geschäfte_has_Artikel_Geschäfte1_idx` (`geschäftID` ASC),
-  CONSTRAINT `fk_Geschäfte_has_Artikel_Geschäfte1`
-    FOREIGN KEY (`geschäftID`)
-    REFERENCES `temma`.`Geschäfte` (`geschäftID`)
+  PRIMARY KEY (`geschaeftID`, `artikelNR`),
+  INDEX `fk_Geschaefte_has_Artikel_Artikel1_idx` (`artikelNR` ASC),
+  INDEX `fk_Geschaefte_has_Artikel_Geschaefte1_idx` (`geschaeftID` ASC),
+  CONSTRAINT `fk_Geschaefte_has_Artikel_Geschaefte1`
+    FOREIGN KEY (`geschaeftID`)
+    REFERENCES `temma`.`Geschaefte` (`geschaeftID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Geschäfte_has_Artikel_Artikel1`
+  CONSTRAINT `fk_Geschaefte_has_Artikel_Artikel1`
     FOREIGN KEY (`artikelNR`)
     REFERENCES `temma`.`Artikel` (`artikelNR`)
     ON DELETE NO ACTION
@@ -128,18 +128,18 @@ ENGINE = InnoDB;
 -- Table `temma`.`Warenkorb`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `temma`.`Warenkorb` (
-  `geschäftID` INT NOT NULL,
+  `geschaeftID` INT NOT NULL,
   `artikelNR` INT NOT NULL,
   `artikelMenge` INT NULL,
-  PRIMARY KEY (`geschäftID`, `artikelNR`),
-  INDEX `fk_Geschäfte_has_Artikel_Artikel1_idx` (`artikelNR` ASC),
-  INDEX `fk_Geschäfte_has_Artikel_Geschäfte1_idx` (`geschäftID` ASC),
-  CONSTRAINT `fk_Geschäfte_has_Artikel_Geschäfte1`
-    FOREIGN KEY (`geschäftID`)
-    REFERENCES `temma`.`Geschäfte` (`geschäftID`)
+  PRIMARY KEY (`geschaeftID`, `artikelNR`),
+  INDEX `fk_Geschaefte_has_Artikel_Artikel1_idx` (`artikelNR` ASC),
+  INDEX `fk_Geschaefte_has_Artikel_Geschaefte1_idx` (`geschaeftID` ASC),
+  CONSTRAINT `fk_Geschaefte_has_Artikel_Geschaefte1`
+    FOREIGN KEY (`geschaeftID`)
+    REFERENCES `temma`.`Geschaefte` (`geschaeftID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Geschäfte_has_Artikel_Artikel1`
+  CONSTRAINT `fk_Geschaefte_has_Artikel_Artikel1`
     FOREIGN KEY (`artikelNR`)
     REFERENCES `temma`.`Artikel` (`artikelNR`)
     ON DELETE NO ACTION
@@ -151,6 +151,9 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-INSERT INTO Geschäftsart VALUES (0, "Anlieferung");
-INSERT INTO Geschäftsart VALUES (1, "Lieferverkauf");
-INSERT INTO Geschäftsart VALUES (2, "Ladenverkauf");
+INSERT INTO Geschaeftsart VALUES (0, "Anlieferung");
+INSERT INTO Geschaeftsart VALUES (1, "Lieferverkauf");
+INSERT INTO Geschaeftsart VALUES (2, "Ladenverkauf");
+INSERT INTO Artikel VALUES (NULL,"Stuhl",10,3);
+INSERT INTO Artikel VALUES (NULL,"Tisch",150,5);
+INSERT INTO Artikel VALUES (NULL,"Bettt",200,1);
