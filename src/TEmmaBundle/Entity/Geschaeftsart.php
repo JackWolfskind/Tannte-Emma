@@ -2,65 +2,53 @@
 
 namespace TEmmaBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Geschaeftsart
- *
- * @ORM\Table(name="geschaeftsart")
- * @ORM\Entity(repositoryClass="TEmmaBundle\Repository\GeschaeftsartRepository")
  */
 class Geschaeftsart
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="ArtID", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $ArtId;
-
-    /**
      * @var string
-     *
-     * @ORM\Column(name="artBezeichnung", type="string", length=45)
      */
-    private $artBezeichnung;
+    private $artbezeichnung;
+
+    /**
+     * @var integer
+     */
+    private $artid;
 
 
     /**
-     * Get id
+     * Set artbezeichnung
      *
-     * @return int
-     */
-    public function getArdId()
-    {
-        return $this->ArtID;
-    }
-
-    /**
-     * Set artBezeichnung
-     *
-     * @param string $artBezeichnung
+     * @param string $artbezeichnung
      *
      * @return Geschaeftsart
      */
-    public function setArtBezeichnung($artBezeichnung)
+    public function setArtbezeichnung($artbezeichnung)
     {
-        $this->artBezeichnung = $artBezeichnung;
+        $this->artbezeichnung = $artbezeichnung;
 
         return $this;
     }
 
     /**
-     * Get artBezeichnung
+     * Get artbezeichnung
      *
      * @return string
      */
-    public function getArtBezeichnung()
+    public function getArtbezeichnung()
     {
-        return $this->artBezeichnung;
+        return $this->artbezeichnung;
+    }
+
+    /**
+     * Get artid
+     *
+     * @return integer
+     */
+    public function getArtid()
+    {
+        return $this->artid;
     }
 }
-

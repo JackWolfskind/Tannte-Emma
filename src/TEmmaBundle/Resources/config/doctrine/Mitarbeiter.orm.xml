@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="TEmmaBundle\Entity\Mitarbeiter" table="Mitarbeiter">
+    <id name="mitarbeiternr" type="integer" column="mitarbeiterNR">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="mitarbeitername" type="string" column="mitarbeiterName" length="45" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="mitarbeitervorname" type="string" column="mitarbeiterVorname" length="45" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="mitarbeitertelefon" type="string" column="mitarbeiterTelefon" length="45" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="mitarbeiteradresse" type="string" column="mitarbeiterAdresse" length="45" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

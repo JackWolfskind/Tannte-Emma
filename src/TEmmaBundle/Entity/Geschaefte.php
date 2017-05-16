@@ -2,116 +2,70 @@
 
 namespace TEmmaBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Geschaefte
- *
- * @ORM\Table(name="geschaefte")
- * @ORM\Entity(repositoryClass="TEmmaBundle\Repository\GeschaefteRepository")
  */
 class Geschaefte
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="geschäftNr", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var string
      */
-    private $geschäftNr;
+    private $geschaeftecol;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="kundeNR", type="integer", nullable=true)
-     */
-    private $kundeNR;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="Geschaeftsart", type="integer")
-     */
-    private $geschaeftsart;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="Datum", type="datetime")
+     * @var string
      */
     private $datum;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="angelegtVonMitarbeiter", type="integer")
+     * @var integer
      */
-    private $angelegtVonMitarbeiter;
+    private $geschaeftid;
+
+    /**
+     * @var \TEmmaBundle\Entity\Geschaeftsart
+     */
+    private $geschaeftsart;
+
+    /**
+     * @var \TEmmaBundle\Entity\Kunde
+     */
+    private $kundeKundenr;
+
+    /**
+     * @var \TEmmaBundle\Entity\Mitarbeiter
+     */
+    private $angelegtvonmitarbeiter;
 
 
     /**
-     * Get id
+     * Set geschaeftecol
      *
-     * @return int
-     */
-    public function getgeschäftNr()
-    {
-        return $this->$geschäftNr;
-    }
-
-    /**
-     * Set kundeNR
-     *
-     * @param integer $kundeNR
+     * @param string $geschaeftecol
      *
      * @return Geschaefte
      */
-    public function setKundeNR($kundeNR)
+    public function setGeschaeftecol($geschaeftecol)
     {
-        $this->kundeNR = $kundeNR;
+        $this->geschaeftecol = $geschaeftecol;
 
         return $this;
     }
 
     /**
-     * Get kundeNR
+     * Get geschaeftecol
      *
-     * @return int
+     * @return string
      */
-    public function getKundeNR()
+    public function getGeschaeftecol()
     {
-        return $this->kundeNR;
-    }
-
-    /**
-     * Set geschaeftsart
-     *
-     * @param integer $geschaeftsart
-     *
-     * @return Geschaefte
-     */
-    public function setGeschaeftsart($geschaeftsart)
-    {
-        $this->geschaeftsart = $geschaeftsart;
-
-        return $this;
-    }
-
-    /**
-     * Get geschaeftsart
-     *
-     * @return int
-     */
-    public function getGeschaeftsart()
-    {
-        return $this->geschaeftsart;
+        return $this->geschaeftecol;
     }
 
     /**
      * Set datum
      *
-     * @param \DateTime $datum
+     * @param string $datum
      *
      * @return Geschaefte
      */
@@ -125,7 +79,7 @@ class Geschaefte
     /**
      * Get datum
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDatum()
     {
@@ -133,27 +87,84 @@ class Geschaefte
     }
 
     /**
-     * Set angelegtVonMitarbeiter
+     * Get geschaeftid
      *
-     * @param integer $angelegtVonMitarbeiter
+     * @return integer
+     */
+    public function getGeschaeftid()
+    {
+        return $this->geschaeftid;
+    }
+
+    /**
+     * Set geschaeftsart
+     *
+     * @param \TEmmaBundle\Entity\Geschaeftsart $geschaeftsart
      *
      * @return Geschaefte
      */
-    public function setAngelegtVonMitarbeiter($angelegtVonMitarbeiter)
+    public function setGeschaeftsart(\TEmmaBundle\Entity\Geschaeftsart $geschaeftsart = null)
     {
-        $this->angelegtVonMitarbeiter = $angelegtVonMitarbeiter;
+        $this->geschaeftsart = $geschaeftsart;
 
         return $this;
     }
 
     /**
-     * Get angelegtVonMitarbeiter
+     * Get geschaeftsart
      *
-     * @return int
+     * @return \TEmmaBundle\Entity\Geschaeftsart
      */
-    public function getAngelegtVonMitarbeiter()
+    public function getGeschaeftsart()
     {
-        return $this->angelegtVonMitarbeiter;
+        return $this->geschaeftsart;
+    }
+
+    /**
+     * Set kundeKundenr
+     *
+     * @param \TEmmaBundle\Entity\Kunde $kundeKundenr
+     *
+     * @return Geschaefte
+     */
+    public function setKundeKundenr(\TEmmaBundle\Entity\Kunde $kundeKundenr = null)
+    {
+        $this->kundeKundenr = $kundeKundenr;
+
+        return $this;
+    }
+
+    /**
+     * Get kundeKundenr
+     *
+     * @return \TEmmaBundle\Entity\Kunde
+     */
+    public function getKundeKundenr()
+    {
+        return $this->kundeKundenr;
+    }
+
+    /**
+     * Set angelegtvonmitarbeiter
+     *
+     * @param \TEmmaBundle\Entity\Mitarbeiter $angelegtvonmitarbeiter
+     *
+     * @return Geschaefte
+     */
+    public function setAngelegtvonmitarbeiter(\TEmmaBundle\Entity\Mitarbeiter $angelegtvonmitarbeiter = null)
+    {
+        $this->angelegtvonmitarbeiter = $angelegtvonmitarbeiter;
+
+        return $this;
+    }
+
+    /**
+     * Get angelegtvonmitarbeiter
+     *
+     * @return \TEmmaBundle\Entity\Mitarbeiter
+     */
+    public function getAngelegtvonmitarbeiter()
+    {
+        return $this->angelegtvonmitarbeiter;
     }
 }
-

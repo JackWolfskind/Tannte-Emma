@@ -2,127 +2,111 @@
 
 namespace TEmmaBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Artikel
- *
- * @ORM\Table(name="artikel")
- * @ORM\Entity(repositoryClass="TEmmaBundle\Repository\ArtikelRepository")
  */
 class Artikel
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="artikelNR", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $artikelNummer;
-
-    /**
      * @var string
-     *
-     * @ORM\Column(name="artikelBezeichnung", type="string", length=45)
      */
-    private $artikelBezeichnung;
+    private $artikelbezeichnung;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="artikelPreis", type="integer")
+     * @var integer
      */
-    private $artikelPreis;
+    private $artikelpreis;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="artikelBestand", type="integer")
+     * @var integer
      */
-    private $artikelBestand;
+    private $artikelbestand;
+
+    /**
+     * @var integer
+     */
+    private $artikelnr;
 
 
     /**
-     * Get Artikelnummer
+     * Set artikelbezeichnung
      *
-     * @return int
-     */
-    public function getArtikelNummer()
-    {
-        return $this->artikelNummer;
-    }
-
-    /**
-     * Set artikelBezeichnung
-     *
-     * @param string $artikelBezeichnung
+     * @param string $artikelbezeichnung
      *
      * @return Artikel
      */
-    public function setArtikelBezeichnung($artikelBezeichnung)
+    public function setArtikelbezeichnung($artikelbezeichnung)
     {
-        $this->artikelBezeichnung = $artikelBezeichnung;
+        $this->artikelbezeichnung = $artikelbezeichnung;
 
         return $this;
     }
 
     /**
-     * Get artikelBezeichnung
+     * Get artikelbezeichnung
      *
      * @return string
      */
-    public function getArtikelBezeichnung()
+    public function getArtikelbezeichnung()
     {
-        return $this->artikelBezeichnung;
+        return $this->artikelbezeichnung;
     }
 
     /**
-     * Set artikelPreis
+     * Set artikelpreis
      *
-     * @param integer $artikelPreis
+     * @param integer $artikelpreis
      *
      * @return Artikel
      */
-    public function setArtikelPreis($artikelPreis)
+    public function setArtikelpreis($artikelpreis)
     {
-        $this->artikelPreis = $artikelPreis;
+        $this->artikelpreis = $artikelpreis;
 
         return $this;
     }
 
     /**
-     * Get artikelPreis
+     * Get artikelpreis
      *
-     * @return int
+     * @return integer
      */
-    public function getArtikelPreis()
+    public function getArtikelpreis()
     {
-        return $this->artikelPreis;
+        return $this->artikelpreis;
     }
 
     /**
-     * Set artikelBestand
+     * Set artikelbestand
      *
-     * @param integer $artikelBestand
+     * @param integer $artikelbestand
      *
      * @return Artikel
      */
-    public function setArtikelBestand($artikelBestand)
+    public function setArtikelbestand($artikelbestand)
     {
-        $this->artikelBestand = $artikelBestand;
+        $this->artikelbestand = $artikelbestand;
 
         return $this;
     }
 
     /**
-     * Get artikelBestand
+     * Get artikelbestand
      *
-     * @return int
+     * @return integer
      */
-    public function getArtikelBestand()
+    public function getArtikelbestand()
     {
-        return $this->artikelBestand;
+        return $this->artikelbestand;
+    }
+
+    /**
+     * Get artikelnr
+     *
+     * @return integer
+     */
+    public function getArtikelnr()
+    {
+        return $this->artikelnr;
     }
 }
-

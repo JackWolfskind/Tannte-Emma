@@ -12,6 +12,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- Schema temma
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `temma` DEFAULT CHARACTER SET utf8 ;
+CREATE DATABASE IF NOT EXISTS `temma`;
 USE `temma` ;
 
 DROP TABLE IF EXISTS Artikel;
@@ -69,6 +70,16 @@ CREATE TABLE IF NOT EXISTS `temma`.`Mitarbeiter` (
 ENGINE = InnoDB;
 
 
+-- CREATE TABLE IF NOT EXISTS `temma`.`TEST` (
+--   `BLahID` INT NOT NULL,
+--   `name` VARCHAR(45) NULL,
+--   `Vorname` VARCHAR(45) NULL,
+--   `Telefon` VARCHAR(45) NULL,
+--   `Adresse` VARCHAR(45) NULL,
+--   PRIMARY KEY (`BLahID`))
+-- ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
 -- Table `temma`.`Geschaefte`
 -- -----------------------------------------------------
@@ -105,18 +116,17 @@ ENGINE = InnoDB;
 -- Table `temma`.`Warenkorb`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `temma`.`Warenkorb` (
+  `warenkorbID` INT NOT NULL AUTO_INCREMENT,
   `geschaeftID` INT NOT NULL,
   `artikelNR` INT NOT NULL,
   `artikelMenge` INT NULL,
-  PRIMARY KEY (`geschaeftID`, `artikelNR`),
+  PRIMARY KEY (`warenkorbID`),
   INDEX `fk_Geschaefte_has_Artikel_Artikel1_idx` (`artikelNR` ASC),
   INDEX `fk_Geschaefte_has_Artikel_Geschaefte1_idx` (`geschaeftID` ASC),
-  CONSTRAINT `fk_Geschaefte_has_Artikel_Geschaefte1`
     FOREIGN KEY (`geschaeftID`)
     REFERENCES `temma`.`Geschaefte` (`geschaeftID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Geschaefte_has_Artikel_Artikel1`
     FOREIGN KEY (`artikelNR`)
     REFERENCES `temma`.`Artikel` (`artikelNR`)
     ON DELETE NO ACTION
@@ -124,27 +134,6 @@ CREATE TABLE IF NOT EXISTS `temma`.`Warenkorb` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `temma`.`Warenkorb`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `temma`.`Warenkorb` (
-  `geschaeftID` INT NOT NULL,
-  `artikelNR` INT NOT NULL,
-  `artikelMenge` INT NULL,
-  PRIMARY KEY (`geschaeftID`, `artikelNR`),
-  INDEX `fk_Geschaefte_has_Artikel_Artikel1_idx` (`artikelNR` ASC),
-  INDEX `fk_Geschaefte_has_Artikel_Geschaefte1_idx` (`geschaeftID` ASC),
-  CONSTRAINT `fk_Geschaefte_has_Artikel_Geschaefte1`
-    FOREIGN KEY (`geschaeftID`)
-    REFERENCES `temma`.`Geschaefte` (`geschaeftID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Geschaefte_has_Artikel_Artikel1`
-    FOREIGN KEY (`artikelNR`)
-    REFERENCES `temma`.`Artikel` (`artikelNR`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

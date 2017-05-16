@@ -2,158 +2,140 @@
 
 namespace TEmmaBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Mitarbeiter
- *
- * @ORM\Table(name="mitarbeiter")
- * @ORM\Entity(repositoryClass="TEmmaBundle\Repository\MitarbeiterRepository")
  */
 class Mitarbeiter
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="mitarbeiterNR", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var string
      */
-    private $mitarbeiterNR;
+    private $mitarbeitername;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="mitarbeiterName", type="string", length=45)
      */
-    private $mitarbeiterName;
+    private $mitarbeitervorname;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="mitarbeiterVorname", type="string", length=45)
      */
-    private $mitarbeiterVorname;
+    private $mitarbeitertelefon;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="mitarbeiterTelefon", type="string", length=40)
      */
-    private $mitarbeiterTelefon;
+    private $mitarbeiteradresse;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="mitarbeiterAdresse", type="string", length=255)
+     * @var integer
      */
-    private $mitarbeiterAdresse;
+    private $mitarbeiternr;
 
 
     /**
-     * Get id
+     * Set mitarbeitername
      *
-     * @return int
-     */
-    public function getMitarbeiterNR()
-    {
-        return $this->mitarbeiterNR;
-    }
-
-    /**
-     * Set mitarbeiterName
-     *
-     * @param string $mitarbeiterName
+     * @param string $mitarbeitername
      *
      * @return Mitarbeiter
      */
-    public function setMitarbeiterName($mitarbeiterName)
+    public function setMitarbeitername($mitarbeitername)
     {
-        $this->mitarbeiterName = $mitarbeiterName;
+        $this->mitarbeitername = $mitarbeitername;
 
         return $this;
     }
 
     /**
-     * Get mitarbeiterName
+     * Get mitarbeitername
      *
      * @return string
      */
-    public function getMitarbeiterName()
+    public function getMitarbeitername()
     {
-        return $this->mitarbeiterName;
+        return $this->mitarbeitername;
     }
 
     /**
-     * Set mitarbeiterVorname
+     * Set mitarbeitervorname
      *
-     * @param string $mitarbeiterVorname
+     * @param string $mitarbeitervorname
      *
      * @return Mitarbeiter
      */
-    public function setMitarbeiterVorname($mitarbeiterVorname)
+    public function setMitarbeitervorname($mitarbeitervorname)
     {
-        $this->mitarbeiterVorname = $mitarbeiterVorname;
+        $this->mitarbeitervorname = $mitarbeitervorname;
 
         return $this;
     }
 
     /**
-     * Get mitarbeiterVorname
+     * Get mitarbeitervorname
      *
      * @return string
      */
-    public function getMitarbeiterVorname()
+    public function getMitarbeitervorname()
     {
-        return $this->mitarbeiterVorname;
+        return $this->mitarbeitervorname;
     }
 
     /**
-     * Set mitarbeiterTelefon
+     * Set mitarbeitertelefon
      *
-     * @param string $mitarbeiterTelefon
+     * @param string $mitarbeitertelefon
      *
      * @return Mitarbeiter
      */
-    public function setMitarbeiterTelefon($mitarbeiterTelefon)
+    public function setMitarbeitertelefon($mitarbeitertelefon)
     {
-        $this->mitarbeiterTelefon = $mitarbeiterTelefon;
+        $this->mitarbeitertelefon = $mitarbeitertelefon;
 
         return $this;
     }
 
     /**
-     * Get mitarbeiterTelefon
+     * Get mitarbeitertelefon
      *
      * @return string
      */
-    public function getMitarbeiterTelefon()
+    public function getMitarbeitertelefon()
     {
-        return $this->mitarbeiterTelefon;
+        return $this->mitarbeitertelefon;
     }
 
     /**
-     * Set mitarbeiterAdresse
+     * Set mitarbeiteradresse
      *
-     * @param string $mitarbeiterAdresse
+     * @param string $mitarbeiteradresse
      *
      * @return Mitarbeiter
      */
-    public function setMitarbeiterAdresse($mitarbeiterAdresse)
+    public function setMitarbeiteradresse($mitarbeiteradresse)
     {
-        $this->mitarbeiterAdresse = $mitarbeiterAdresse;
+        $this->mitarbeiteradresse = $mitarbeiteradresse;
 
         return $this;
     }
 
     /**
-     * Get mitarbeiterAdresse
+     * Get mitarbeiteradresse
      *
      * @return string
      */
-    public function getMitarbeiterAdresse()
+    public function getMitarbeiteradresse()
     {
-        return $this->mitarbeiterAdresse;
+        return $this->mitarbeiteradresse;
+    }
+
+    /**
+     * Get mitarbeiternr
+     *
+     * @return integer
+     */
+    public function getMitarbeiternr()
+    {
+        return $this->mitarbeiternr;
     }
 }
-

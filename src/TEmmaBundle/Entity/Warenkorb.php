@@ -2,111 +2,111 @@
 
 namespace TEmmaBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Warenkorb
- *
- * @ORM\Table(name="warenkorb")
- * @ORM\Entity(repositoryClass="TEmmaBundle\Repository\WarenkorbRepository")
  */
 class Warenkorb
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="geschäftID", type="integer")
-     * @ORM\Id
+     * @var integer
      */
-    private $geschaeftID;
+    private $artikelmenge;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="artikelNR", type="integer")
-     * @ORM\Id
+     * @var integer
      */
-    private $artikelNR;
+    private $warenkorbid;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="artikelMenge", type="integer")
+     * @var \TEmmaBundle\Entity\Artikel
      */
-    private $artikelMenge;
+    private $artikelnr;
+
+    /**
+     * @var \TEmmaBundle\Entity\Geschaefte
+     */
+    private $geschaeftid;
 
 
     /**
-     * Get id
+     * Set artikelmenge
      *
-     * @return int
-     */
-    public function getGeschäftID()
-    {
-        return $this->geschäftID;
-    }
-	
-	/**
-     * Set artikelNR
-     *
-     * @param integer $artikelNR
+     * @param integer $artikelmenge
      *
      * @return Warenkorb
      */
-    public function setGeschäftID($GeschäftID)
+    public function setArtikelmenge($artikelmenge)
     {
-        $this->geschäftID = $geschäftID;
-
-        return $this;
-    }
-
-
-    /**
-     * Set artikelNR
-     *
-     * @param integer $artikelNR
-     *
-     * @return Warenkorb
-     */
-    public function setArtikelNR($artikelNR)
-    {
-        $this->artikelNR = $artikelNR;
+        $this->artikelmenge = $artikelmenge;
 
         return $this;
     }
 
     /**
-     * Get artikelNR
+     * Get artikelmenge
      *
-     * @return int
+     * @return integer
      */
-    public function getArtikelNR()
+    public function getArtikelmenge()
     {
-        return $this->artikelNR;
+        return $this->artikelmenge;
     }
 
     /**
-     * Set artikelMenge
+     * Get warenkorbid
      *
-     * @param integer $artikelMenge
+     * @return integer
+     */
+    public function getWarenkorbid()
+    {
+        return $this->warenkorbid;
+    }
+
+    /**
+     * Set artikelnr
+     *
+     * @param \TEmmaBundle\Entity\Artikel $artikelnr
      *
      * @return Warenkorb
      */
-    public function setArtikelMenge($artikelMenge)
+    public function setArtikelnr(\TEmmaBundle\Entity\Artikel $artikelnr = null)
     {
-        $this->artikelMenge = $artikelMenge;
+        $this->artikelnr = $artikelnr;
 
         return $this;
     }
 
     /**
-     * Get artikelMenge
+     * Get artikelnr
      *
-     * @return int
+     * @return \TEmmaBundle\Entity\Artikel
      */
-    public function getArtikelMenge()
+    public function getArtikelnr()
     {
-        return $this->artikelMenge;
+        return $this->artikelnr;
+    }
+
+    /**
+     * Set geschaeftid
+     *
+     * @param \TEmmaBundle\Entity\Geschaefte $geschaeftid
+     *
+     * @return Warenkorb
+     */
+    public function setGeschaeftid(\TEmmaBundle\Entity\Geschaefte $geschaeftid = null)
+    {
+        $this->geschaeftid = $geschaeftid;
+
+        return $this;
+    }
+
+    /**
+     * Get geschaeftid
+     *
+     * @return \TEmmaBundle\Entity\Geschaefte
+     */
+    public function getGeschaeftid()
+    {
+        return $this->geschaeftid;
     }
 }
-

@@ -2,158 +2,140 @@
 
 namespace TEmmaBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Kunde
- *
- * @ORM\Table(name="kunde")
- * @ORM\Entity(repositoryClass="TEmmaBundle\Repository\KundeRepository")
  */
 class Kunde
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="kundenNR", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var string
      */
-    private $kundenNR;
+    private $kundename;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="kundeName", type="string", length=45)
      */
-    private $kundeName;
+    private $kundevorname;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="kundeVorname", type="string", length=45)
      */
-    private $kundeVorname;
+    private $kundeadresse;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="kundeAdresse", type="string", length=255)
      */
-    private $kundeAdresse;
+    private $kundelieferhinweis;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="kundeLieferhinweis", type="text", nullable=true)
+     * @var integer
      */
-    private $kundeLieferhinweis;
+    private $kundenr;
 
 
     /**
-     * Get id
+     * Set kundename
      *
-     * @return int
-     */
-    public function getKundenNR()
-    {
-        return $this->kundenNR;
-    }
-
-    /**
-     * Set kundeName
-     *
-     * @param string $kundeName
+     * @param string $kundename
      *
      * @return Kunde
      */
-    public function setKundeName($kundeName)
+    public function setKundename($kundename)
     {
-        $this->kundeName = $kundeName;
+        $this->kundename = $kundename;
 
         return $this;
     }
 
     /**
-     * Get kundeName
+     * Get kundename
      *
      * @return string
      */
-    public function getKundeName()
+    public function getKundename()
     {
-        return $this->kundeName;
+        return $this->kundename;
     }
 
     /**
-     * Set kundeVorname
+     * Set kundevorname
      *
-     * @param string $kundeVorname
+     * @param string $kundevorname
      *
      * @return Kunde
      */
-    public function setKundeVorname($kundeVorname)
+    public function setKundevorname($kundevorname)
     {
-        $this->kundeVorname = $kundeVorname;
+        $this->kundevorname = $kundevorname;
 
         return $this;
     }
 
     /**
-     * Get kundeVorname
+     * Get kundevorname
      *
      * @return string
      */
-    public function getKundeVorname()
+    public function getKundevorname()
     {
-        return $this->kundeVorname;
+        return $this->kundevorname;
     }
 
     /**
-     * Set kundeAdresse
+     * Set kundeadresse
      *
-     * @param string $kundeAdresse
+     * @param string $kundeadresse
      *
      * @return Kunde
      */
-    public function setKundeAdresse($kundeAdresse)
+    public function setKundeadresse($kundeadresse)
     {
-        $this->kundeAdresse = $kundeAdresse;
+        $this->kundeadresse = $kundeadresse;
 
         return $this;
     }
 
     /**
-     * Get kundeAdresse
+     * Get kundeadresse
      *
      * @return string
      */
-    public function getKundeAdresse()
+    public function getKundeadresse()
     {
-        return $this->kundeAdresse;
+        return $this->kundeadresse;
     }
 
     /**
-     * Set kundeLieferhinweis
+     * Set kundelieferhinweis
      *
-     * @param string $kundeLieferhinweis
+     * @param string $kundelieferhinweis
      *
      * @return Kunde
      */
-    public function setKundeLieferhinweis($kundeLieferhinweis)
+    public function setKundelieferhinweis($kundelieferhinweis)
     {
-        $this->kundeLieferhinweis = $kundeLieferhinweis;
+        $this->kundelieferhinweis = $kundelieferhinweis;
 
         return $this;
     }
 
     /**
-     * Get kundeLieferhinweis
+     * Get kundelieferhinweis
      *
      * @return string
      */
-    public function getKundeLieferhinweis()
+    public function getKundelieferhinweis()
     {
-        return $this->kundeLieferhinweis;
+        return $this->kundelieferhinweis;
+    }
+
+    /**
+     * Get kundenr
+     *
+     * @return integer
+     */
+    public function getKundenr()
+    {
+        return $this->kundenr;
     }
 }
-
