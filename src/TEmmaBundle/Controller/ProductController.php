@@ -3,7 +3,6 @@
 namespace TEmmaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use TEmmaBundle\Entity\Artikel as Product;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 

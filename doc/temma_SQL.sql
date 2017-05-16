@@ -139,10 +139,9 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-INSERT INTO Geschaeftsart VALUES (0, "Anlieferung");
-INSERT INTO Geschaeftsart VALUES (1, "Lieferverkauf");
-INSERT INTO Geschaeftsart VALUES (2, "Ladenverkauf");
-INSERT INTO Artikel VALUES (NULL,"Stuhl",10,3);
-INSERT INTO Artikel VALUES (NULL,"Tisch",150,5);
-INSERT INTO Artikel VALUES (NULL,"Bettt",200,1);
+INSERT INTO Geschaeftsart (`ArtID`,`ArtBezeichnung`) VALUES (0, "Anlieferung");
+INSERT INTO Geschaeftsart (`ArtID`,`ArtBezeichnung`) VALUES (1, "Lieferverkauf");
+INSERT INTO Geschaeftsart (`ArtID`,`ArtBezeichnung`) VALUES (2, "Ladenverkauf");
+INSERT INTO Artikel (`artikelBezeichnung`,`artikelPreis`,`artikelBestand`) VALUES ("Stuhl",10,3);
+INSERT INTO Artikel (`artikelBezeichnung`,`artikelPreis`,`artikelBestand`) VALUES ("Tisch",150,5);
+INSERT INTO Artikel (`artikelBezeichnung`,`artikelPreis`,`artikelBestand`) VALUES ("Bettt",200,1);
