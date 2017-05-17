@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="TEmmaBundle\Entity\Warenkorb" table="Warenkorb">
+  <entity name="TEmmaBundle\Entity\Posten" table="Posten">
     <indexes>
-      <index name="fk_Geschaefte_has_Artikel_Artikel1_idx" columns="artikelNR"/>
-      <index name="fk_Geschaefte_has_Artikel_Geschaefte1_idx" columns="geschaeftID"/>
+      <index name="fk_Geschäfte_has_Artikel_Artikel1_idx" columns="artikelNR"/>
+      <index name="fk_Geschäfte_has_Artikel_Geschäfte1_idx" columns="geschäftID"/>
     </indexes>
-    <id name="warenkorbid" type="integer" column="warenkorbID">
+    <id name="postenid" type="string" column="postenID" length="45">
       <generator strategy="IDENTITY"/>
     </id>
     <field name="artikelmenge" type="integer" column="artikelMenge" nullable="true">
@@ -18,9 +18,9 @@
         <join-column name="artikelNR" referenced-column-name="artikelNR"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="geschaeftid" target-entity="Geschaefte" fetch="LAZY">
+    <many-to-one field="geschäftid" target-entity="Geschäfte" fetch="LAZY">
       <join-columns>
-        <join-column name="geschaeftID" referenced-column-name="geschaeftID"/>
+        <join-column name="geschäftID" referenced-column-name="geschäftID"/>
       </join-columns>
     </many-to-one>
   </entity>
