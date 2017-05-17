@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="TEmmaBundle\Entity\Geschaefte" table="Geschaefte">
+    <indexes>
+      <index name="fk_Geschaefte_Geschaeftsart1_idx" columns="Geschaeftsart"/>
+      <index name="fk_Geschaefte_Kunde1_idx" columns="kundeNR"/>
+      <index name="fk_Geschaefte_Mitarbeiter1_idx" columns="angelegtVon"/>
+    </indexes>
+    <id name="geschaeftid" type="integer" column="geschaeftID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="geschäftecol" type="string" column="Geschäftecol" length="45" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="datum" type="string" column="Datum" length="45" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-one field="geschaeftsart" target-entity="Geschaeftsart" fetch="LAZY">
+      <join-columns>
+        <join-column name="Geschaeftsart" referenced-column-name="ArtID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="kundenr" target-entity="Kunde" fetch="LAZY">
+      <join-columns>
+        <join-column name="kundeNR" referenced-column-name="kundeNR"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="angelegtvon" target-entity="Mitarbeiter" fetch="LAZY">
+      <join-columns>
+        <join-column name="angelegtVon" referenced-column-name="mitarbeiterID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

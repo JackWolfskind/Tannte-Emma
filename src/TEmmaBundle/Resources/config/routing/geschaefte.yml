@@ -1,0 +1,24 @@
+geschaefte_index:
+    path:     /
+    defaults: { _controller: "TEmmaBundle:Geschaefte:index" }
+    methods:  GET
+
+geschaefte_show:
+    path:     /{geschaeftid}/show
+    defaults: { _controller: "TEmmaBundle:Geschaefte:show" }
+    methods:  GET
+
+geschaefte_new:
+    path:     /new
+    defaults: { _controller: "TEmmaBundle:Geschaefte:new" }
+    methods:  [GET, POST]
+
+geschaefte_edit:
+    path:     /{geschaeftid}/edit
+    defaults: { _controller: "TEmmaBundle:Geschaefte:edit" }
+    methods:  [GET, POST]
+
+geschaefte_delete:
+    path:     /{geschaeftid}/delete
+    defaults: { _controller: "TEmmaBundle:Geschaefte:delete" }
+    methods:  DELETE

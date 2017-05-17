@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Geschaeftsarts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Artbezeichnung</th>
+                <th>Artid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for geschaeftsart in geschaeftsarts %}
+            <tr>
+                <td><a href="{{ path('geschaeftsart_show', { 'artid': geschaeftsart.artid }) }}">{{ geschaeftsart.artbezeichnung }}</a></td>
+                <td>{{ geschaeftsart.artid }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('geschaeftsart_show', { 'artid': geschaeftsart.artid }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('geschaeftsart_edit', { 'artid': geschaeftsart.artid }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('geschaeftsart_new') }}">Create a new geschaeftsart</a>
+        </li>
+    </ul>
+{% endblock %}

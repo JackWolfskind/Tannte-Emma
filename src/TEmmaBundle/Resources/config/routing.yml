@@ -7,6 +7,13 @@ t_emma_mitarbeiter:
 t_emma_posten:
         resource: "@TEmmaBundle/Resources/config/routing/posten.yml"
         prefix:   /posten
+t_emma_geschaeftsart:
+        resource: "@TEmmaBundle/Resources/config/routing/geschaeftsart.yml"
+        prefix:   /geschaeftsart
+t_emma_geschaefte:
+        resource: "@TEmmaBundle/Resources/config/routing/geschaefte.yml"
+        prefix:   /geschaefte
+
 
 t_emma_kunde:
         resource: "@TEmmaBundle/Resources/config/routing/kunde.yml"

@@ -3,7 +3,7 @@
   <entity name="TEmmaBundle\Entity\Posten" table="Posten">
     <indexes>
       <index name="fk_Geschäfte_has_Artikel_Artikel1_idx" columns="artikelNR"/>
-      <index name="fk_Geschäfte_has_Artikel_Geschäfte1_idx" columns="geschäftID"/>
+      <index name="fk_Posten_Geschaefte1_idx" columns="geschaeftID"/>
     </indexes>
     <id name="postenid" type="string" column="postenID" length="45">
       <generator strategy="IDENTITY"/>
@@ -18,9 +18,9 @@
         <join-column name="artikelNR" referenced-column-name="artikelNR"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="geschäftid" target-entity="Geschäfte" fetch="LAZY">
+    <many-to-one field="geschaeftid" target-entity="Geschaefte" fetch="LAZY">
       <join-columns>
-        <join-column name="geschäftID" referenced-column-name="geschäftID"/>
+        <join-column name="geschaeftID" referenced-column-name="geschaeftID"/>
       </join-columns>
     </many-to-one>
   </entity>

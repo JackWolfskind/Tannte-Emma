@@ -1,0 +1,24 @@
+geschaeftsart_index:
+    path:     /
+    defaults: { _controller: "TEmmaBundle:Geschaeftsart:index" }
+    methods:  GET
+
+geschaeftsart_show:
+    path:     /{artid}/show
+    defaults: { _controller: "TEmmaBundle:Geschaeftsart:show" }
+    methods:  GET
+
+geschaeftsart_new:
+    path:     /new
+    defaults: { _controller: "TEmmaBundle:Geschaeftsart:new" }
+    methods:  [GET, POST]
+
+geschaeftsart_edit:
+    path:     /{artid}/edit
+    defaults: { _controller: "TEmmaBundle:Geschaeftsart:edit" }
+    methods:  [GET, POST]
+
+geschaeftsart_delete:
+    path:     /{artid}/delete
+    defaults: { _controller: "TEmmaBundle:Geschaeftsart:delete" }
+    methods:  DELETE

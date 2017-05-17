@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Geschaeftes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Geschäftecol</th>
+                <th>Datum</th>
+                <th>Geschaeftid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for geschaefte in geschaeftes %}
+            <tr>
+                <td><a href="{{ path('geschaefte_show', { 'geschaeftid': geschaefte.geschaeftid }) }}">{{ geschaefte.geschäftecol }}</a></td>
+                <td>{{ geschaefte.datum }}</td>
+                <td>{{ geschaefte.geschaeftid }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('geschaefte_show', { 'geschaeftid': geschaefte.geschaeftid }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('geschaefte_edit', { 'geschaeftid': geschaefte.geschaeftid }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('geschaefte_new') }}">Create a new geschaefte</a>
+        </li>
+    </ul>
+{% endblock %}
