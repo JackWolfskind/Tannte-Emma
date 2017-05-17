@@ -44,11 +44,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `temma`.`Geschäftsart`
+-- Table `temma`.`Geschaeftsart`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `temma`.`Geschäftsart` ;
+DROP TABLE IF EXISTS `temma`.`Geschaeftsart` ;
 
-CREATE TABLE IF NOT EXISTS `temma`.`Geschäftsart` (
+CREATE TABLE IF NOT EXISTS `temma`.`Geschaeftsart` (
   `ArtID` INT NOT NULL,
   `ArtBezeichnung` VARCHAR(45) NULL,
   PRIMARY KEY (`ArtID`))
@@ -61,21 +61,22 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `temma`.`Mitarbeiter` ;
 
 CREATE TABLE IF NOT EXISTS `temma`.`Mitarbeiter` (
-  `mitarbeiterNR` INT NOT NULL,
+  `mitarbeiterID` VARCHAR(5) NOT NULL,
   `mitarbeiterName` VARCHAR(45) NULL,
   `mitarbeiterVorname` VARCHAR(45) NULL,
   `mitarbeiterTelefon` VARCHAR(45) NULL,
   `mitarbeiterAdresse` VARCHAR(45) NULL,
-  PRIMARY KEY (`mitarbeiterNR`))
+  `passwd` VARCHAR(255) NULL,
+  PRIMARY KEY (`mitarbeiterID`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `temma`.`Geschäfte`
+-- Table `temma`.`Geschaefte`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `temma`.`Geschäfte` ;
+DROP TABLE IF EXISTS `temma`.`Geschaefte` ;
 
-CREATE TABLE IF NOT EXISTS `temma`.`Geschäfte` (
+CREATE TABLE IF NOT EXISTS `temma`.`Geschaefte` (
   `geschäftID` INT NOT NULL,
   `Geschäftecol` VARCHAR(45) NULL,
   `Kunde_kundeNR` INT NOT NULL,
@@ -93,12 +94,12 @@ CREATE TABLE IF NOT EXISTS `temma`.`Geschäfte` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Geschäfte_Geschäftsart1`
     FOREIGN KEY (`Geschäftsart`)
-    REFERENCES `temma`.`Geschäftsart` (`ArtID`)
+    REFERENCES `temma`.`Geschaeftsart` (`ArtID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Geschäfte_Mitarbeiter1`
     FOREIGN KEY (`angelegtVonMitarbeiter`)
-    REFERENCES `temma`.`Mitarbeiter` (`mitarbeiterNR`)
+    REFERENCES `temma`.`Mitarbeiter` (`mitarbeiterID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -119,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `temma`.`Posten` (
   PRIMARY KEY (`postenID`),
   CONSTRAINT `fk_Geschäfte_has_Artikel_Geschäfte1`
     FOREIGN KEY (`geschäftID`)
-    REFERENCES `temma`.`Geschäfte` (`geschäftID`)
+    REFERENCES `temma`.`Geschaefte` (`geschäftID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Geschäfte_has_Artikel_Artikel1`
@@ -133,7 +134,3 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-INSERT INTO Geschaeftsart (`ArtID`,`ArtBezeichnung`) VALUES (0, "Anlieferung");
-INSERT INTO Geschaeftsart (`ArtID`,`ArtBezeichnung`) VALUES (1, "Lieferverkauf");
-INSERT INTO Geschaeftsart (`ArtID`,`ArtBezeichnung`) VALUES (2, "Ladenverkauf");

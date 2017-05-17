@@ -138,4 +138,48 @@ class Mitarbeiter
     {
         return $this->mitarbeiternr;
     }
+    /**
+     * @var string
+     */
+    private $passwd;
+
+    /**
+     * @var string
+     */
+    private $mitarbeiterid;
+
+
+    /**
+     * Set passwd
+     *
+     * @param string $passwd
+     *
+     * @return Mitarbeiter
+     */
+    public function setPasswd($passwd)
+    {
+        $this->passwd = $passwd;
+
+        return $this;
+    }
+
+    /**
+     * Get passwd
+     *
+     * @return string
+     */
+    public function getPasswd()
+    {
+        return $this->passwd;
+    }
+
+    /**
+     * Get mitarbeiterid
+     *
+     * @return string
+     */
+    public function getMitarbeiterid()
+    {
+        return $this->mitarbeiterid;
+    }
 }

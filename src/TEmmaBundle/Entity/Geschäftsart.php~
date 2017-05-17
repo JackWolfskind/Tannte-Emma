@@ -52,4 +52,3 @@ class Geschäftsart
         return $this->artid;
     }
 }
-
