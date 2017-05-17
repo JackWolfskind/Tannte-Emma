@@ -109,4 +109,33 @@ class Posten
     {
         return $this->geschäftid;
     }
+    /**
+     * @var \TEmmaBundle\Entity\Geschaefte
+     */
+    private $geschaeftid;
+
+
+    /**
+     * Set geschaeftid
+     *
+     * @param \TEmmaBundle\Entity\Geschaefte $geschaeftid
+     *
+     * @return Posten
+     */
+    public function setGeschaeftid(\TEmmaBundle\Entity\Geschaefte $geschaeftid = null)
+    {
+        $this->geschaeftid = $geschaeftid;
+
+        return $this;
+    }
+
+    /**
+     * Get geschaeftid
+     *
+     * @return \TEmmaBundle\Entity\Geschaefte
+     */
+    public function getGeschaeftid()
+    {
+        return $this->geschaeftid;
+    }
 }
