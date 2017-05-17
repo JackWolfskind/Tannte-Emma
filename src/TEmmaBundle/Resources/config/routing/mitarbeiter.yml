@@ -1,0 +1,24 @@
+mitarbeiter_index:
+    path:     /
+    defaults: { _controller: "TEmmaBundle:Mitarbeiter:index" }
+    methods:  GET
+
+mitarbeiter_show:
+    path:     /{mitarbeiternr}/show
+    defaults: { _controller: "TEmmaBundle:Mitarbeiter:show" }
+    methods:  GET
+
+mitarbeiter_new:
+    path:     /new
+    defaults: { _controller: "TEmmaBundle:Mitarbeiter:new" }
+    methods:  [GET, POST]
+
+mitarbeiter_edit:
+    path:     /{mitarbeiternr}/edit
+    defaults: { _controller: "TEmmaBundle:Mitarbeiter:edit" }
+    methods:  [GET, POST]
+
+mitarbeiter_delete:
+    path:     /{mitarbeiternr}/delete
+    defaults: { _controller: "TEmmaBundle:Mitarbeiter:delete" }
+    methods:  DELETE

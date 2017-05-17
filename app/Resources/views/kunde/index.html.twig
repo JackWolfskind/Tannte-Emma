@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Kundes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Kundename</th>
+                <th>Kundevorname</th>
+                <th>Kundeadresse</th>
+                <th>Kundelieferhinweis</th>
+                <th>Kundenr</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for kunde in kundes %}
+            <tr>
+                <td><a href="{{ path('kunde_show', { 'kundenr': kunde.kundenr }) }}">{{ kunde.kundename }}</a></td>
+                <td>{{ kunde.kundevorname }}</td>
+                <td>{{ kunde.kundeadresse }}</td>
+                <td>{{ kunde.kundelieferhinweis }}</td>
+                <td>{{ kunde.kundenr }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('kunde_show', { 'kundenr': kunde.kundenr }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('kunde_edit', { 'kundenr': kunde.kundenr }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('kunde_new') }}">Create a new kunde</a>
+        </li>
+    </ul>
+{% endblock %}

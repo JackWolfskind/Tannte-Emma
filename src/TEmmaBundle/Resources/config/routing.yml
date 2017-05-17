@@ -1,6 +1,16 @@
 t_emma_artikel:
     resource: "@TEmmaBundle/Resources/config/routing/artikel.yml"
     prefix:   /artikel
+t_emma_mitarbeiter:
+        resource: "@TEmmaBundle/Resources/config/routing/mitarbeiter.yml"
+        prefix:   /mitarbeiter
+t_emma_posten:
+        resource: "@TEmmaBundle/Resources/config/routing/posten.yml"
+        prefix:   /posten
+
+t_emma_kunde:
+        resource: "@TEmmaBundle/Resources/config/routing/kunde.yml"
+        prefix:   /kunde
 
 t_emma:
     path:   "/"
@@ -8,6 +18,3 @@ t_emma:
 login:
     path: "/login"
     defaults:  { _controller: TEmmaBundle:Secuity:login}
-product_list:
-    path: "/product/list"
-    defaults:  { _controller: TEmmaBundle:Product:list}

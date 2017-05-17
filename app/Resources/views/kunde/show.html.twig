@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Kunde</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Kundename</th>
+                <td>{{ kunde.kundename }}</td>
+            </tr>
+            <tr>
+                <th>Kundevorname</th>
+                <td>{{ kunde.kundevorname }}</td>
+            </tr>
+            <tr>
+                <th>Kundeadresse</th>
+                <td>{{ kunde.kundeadresse }}</td>
+            </tr>
+            <tr>
+                <th>Kundelieferhinweis</th>
+                <td>{{ kunde.kundelieferhinweis }}</td>
+            </tr>
+            <tr>
+                <th>Kundenr</th>
+                <td>{{ kunde.kundenr }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('kunde_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('kunde_edit', { 'kundenr': kunde.kundenr }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

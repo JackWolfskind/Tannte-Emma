@@ -1,0 +1,24 @@
+posten_index:
+    path:     /
+    defaults: { _controller: "TEmmaBundle:Posten:index" }
+    methods:  GET
+
+posten_show:
+    path:     /{postenid}/show
+    defaults: { _controller: "TEmmaBundle:Posten:show" }
+    methods:  GET
+
+posten_new:
+    path:     /new
+    defaults: { _controller: "TEmmaBundle:Posten:new" }
+    methods:  [GET, POST]
+
+posten_edit:
+    path:     /{postenid}/edit
+    defaults: { _controller: "TEmmaBundle:Posten:edit" }
+    methods:  [GET, POST]
+
+posten_delete:
+    path:     /{postenid}/delete
+    defaults: { _controller: "TEmmaBundle:Posten:delete" }
+    methods:  DELETE

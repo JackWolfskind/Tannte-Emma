@@ -1,0 +1,24 @@
+kunde_index:
+    path:     /
+    defaults: { _controller: "TEmmaBundle:Kunde:index" }
+    methods:  GET
+
+kunde_show:
+    path:     /{kundenr}/show
+    defaults: { _controller: "TEmmaBundle:Kunde:show" }
+    methods:  GET
+
+kunde_new:
+    path:     /new
+    defaults: { _controller: "TEmmaBundle:Kunde:new" }
+    methods:  [GET, POST]
+
+kunde_edit:
+    path:     /{kundenr}/edit
+    defaults: { _controller: "TEmmaBundle:Kunde:edit" }
+    methods:  [GET, POST]
+
+kunde_delete:
+    path:     /{kundenr}/delete
+    defaults: { _controller: "TEmmaBundle:Kunde:delete" }
+    methods:  DELETE
