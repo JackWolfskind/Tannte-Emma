@@ -13,7 +13,7 @@ class GeschaefteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('geschaeftecol')->add('datum')->add('geschaeftsart')->add('kundenr')->add('angelegtvon');
+        $builder->add('datum')->add('geschaeftsart')->add('kundenr')->add('angelegtvon');
     }
     
     /**

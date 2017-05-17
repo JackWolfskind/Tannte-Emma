@@ -13,7 +13,7 @@ class PostenType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('artikelmenge')->add('artikelnr')->add('geschäftid');
+        $builder->add('artikelmenge')->add('artikelnr')->add('geschaeftid');
     }
     
     /**

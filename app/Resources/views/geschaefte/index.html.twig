@@ -6,7 +6,6 @@
     <table>
         <thead>
             <tr>
-                <th>Geschaeftecol</th>
                 <th>Datum</th>
                 <th>Geschaeftid</th>
                 <th>Actions</th>
@@ -15,8 +14,7 @@
         <tbody>
         {% for geschaefte in geschaeftes %}
             <tr>
-                <td><a href="{{ path('geschaefte_show', { 'geschaeftid': geschaefte.geschaeftid }) }}">{{ geschaefte.geschaeftecol }}</a></td>
-                <td>{{ geschaefte.datum }}</td>
+                <td><a href="{{ path('geschaefte_show', { 'geschaeftid': geschaefte.geschaeftid }) }}">{{ geschaefte.datum }}</a></td>
                 <td>{{ geschaefte.geschaeftid }}</td>
                 <td>
                     <ul>

@@ -28,9 +28,14 @@ class Mitarbeiter
     private $mitarbeiteradresse;
 
     /**
-     * @var integer
+     * @var string
      */
-    private $mitarbeiternr;
+    private $passwd;
+
+    /**
+     * @var string
+     */
+    private $mitarbeiterid;
 
 
     /**
@@ -128,26 +133,6 @@ class Mitarbeiter
     {
         return $this->mitarbeiteradresse;
     }
-
-    /**
-     * Get mitarbeiternr
-     *
-     * @return integer
-     */
-    public function getMitarbeiternr()
-    {
-        return $this->mitarbeiternr;
-    }
-    /**
-     * @var string
-     */
-    private $passwd;
-
-    /**
-     * @var string
-     */
-    private $mitarbeiterid;
-
 
     /**
      * Set passwd

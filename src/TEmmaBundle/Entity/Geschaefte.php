@@ -10,11 +10,6 @@ class Geschaefte
     /**
      * @var string
      */
-    private $geschaeftecol;
-
-    /**
-     * @var string
-     */
     private $datum;
 
     /**
@@ -30,37 +25,13 @@ class Geschaefte
     /**
      * @var \TEmmaBundle\Entity\Kunde
      */
-    private $kundeKundenr;
+    private $kundenr;
 
     /**
      * @var \TEmmaBundle\Entity\Mitarbeiter
      */
-    private $angelegtvonmitarbeiter;
+    private $angelegtvon;
 
-
-    /**
-     * Set geschaeftecol
-     *
-     * @param string $geschaeftecol
-     *
-     * @return Geschaefte
-     */
-    public function setGeschaeftecol($geschaeftecol)
-    {
-        $this->geschaeftecol = $geschaeftecol;
-
-        return $this;
-    }
-
-    /**
-     * Get geschaeftecol
-     *
-     * @return string
-     */
-    public function getGeschaeftecol()
-    {
-        return $this->geschaeftecol;
-    }
 
     /**
      * Set datum
@@ -121,93 +92,6 @@ class Geschaefte
     }
 
     /**
-     * Set kundeKundenr
-     *
-     * @param \TEmmaBundle\Entity\Kunde $kundeKundenr
-     *
-     * @return Geschaefte
-     */
-    public function setKundeKundenr(\TEmmaBundle\Entity\Kunde $kundeKundenr = null)
-    {
-        $this->kundeKundenr = $kundeKundenr;
-
-        return $this;
-    }
-
-    /**
-     * Get kundeKundenr
-     *
-     * @return \TEmmaBundle\Entity\Kunde
-     */
-    public function getKundeKundenr()
-    {
-        return $this->kundeKundenr;
-    }
-
-    /**
-     * Set angelegtvonmitarbeiter
-     *
-     * @param \TEmmaBundle\Entity\Mitarbeiter $angelegtvonmitarbeiter
-     *
-     * @return Geschaefte
-     */
-    public function setAngelegtvonmitarbeiter(\TEmmaBundle\Entity\Mitarbeiter $angelegtvonmitarbeiter = null)
-    {
-        $this->angelegtvonmitarbeiter = $angelegtvonmitarbeiter;
-
-        return $this;
-    }
-
-    /**
-     * Get angelegtvonmitarbeiter
-     *
-     * @return \TEmmaBundle\Entity\Mitarbeiter
-     */
-    public function getAngelegtvonmitarbeiter()
-    {
-        return $this->angelegtvonmitarbeiter;
-    }
-    /**
-     * @var string
-     */
-    private $geschäftecol;
-
-    /**
-     * @var \TEmmaBundle\Entity\Kunde
-     */
-    private $kundenr;
-
-    /**
-     * @var \TEmmaBundle\Entity\Mitarbeiter
-     */
-    private $angelegtvon;
-
-
-    /**
-     * Set geschäftecol
-     *
-     * @param string $geschäftecol
-     *
-     * @return Geschaefte
-     */
-    public function setGeschäftecol($geschäftecol)
-    {
-        $this->geschäftecol = $geschäftecol;
-
-        return $this;
-    }
-
-    /**
-     * Get geschäftecol
-     *
-     * @return string
-     */
-    public function getGeschäftecol()
-    {
-        return $this->geschäftecol;
-    }
-
-    /**
      * Set kundenr
      *
      * @param \TEmmaBundle\Entity\Kunde $kundenr
@@ -255,3 +139,4 @@ class Geschaefte
         return $this->angelegtvon;
     }
 }
+

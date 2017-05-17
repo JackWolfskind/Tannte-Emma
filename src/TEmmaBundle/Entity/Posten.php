@@ -13,7 +13,7 @@ class Posten
     private $artikelmenge;
 
     /**
-     * @var string
+     * @var integer
      */
     private $postenid;
 
@@ -23,9 +23,9 @@ class Posten
     private $artikelnr;
 
     /**
-     * @var \TEmmaBundle\Entity\Geschäfte
+     * @var \TEmmaBundle\Entity\Geschaefte
      */
-    private $geschäftid;
+    private $geschaeftid;
 
 
     /**
@@ -55,7 +55,7 @@ class Posten
     /**
      * Get postenid
      *
-     * @return string
+     * @return integer
      */
     public function getPostenid()
     {
@@ -85,35 +85,6 @@ class Posten
     {
         return $this->artikelnr;
     }
-
-    /**
-     * Set geschäftid
-     *
-     * @param \TEmmaBundle\Entity\Geschäfte $geschäftid
-     *
-     * @return Posten
-     */
-    public function setGeschäftid(\TEmmaBundle\Entity\Geschäfte $geschäftid = null)
-    {
-        $this->geschäftid = $geschäftid;
-
-        return $this;
-    }
-
-    /**
-     * Get geschäftid
-     *
-     * @return \TEmmaBundle\Entity\Geschäfte
-     */
-    public function getGeschäftid()
-    {
-        return $this->geschäftid;
-    }
-    /**
-     * @var \TEmmaBundle\Entity\Geschaefte
-     */
-    private $geschaeftid;
-
 
     /**
      * Set geschaeftid
