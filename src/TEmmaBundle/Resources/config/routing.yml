@@ -1,0 +1,10 @@
+t_emma_artikel:
+    resource: "@TEmmaBundle/Resources/config/routing/artikel.yml"
+    prefix:   /artikel
+
+login:
+    path: "/login"
+    defaults:  { _controller: TEmmaBundle:Secuity:login}
+product_list:
+    path: "/product/list"
+    defaults:  { _controller: TEmmaBundle:Product:list}

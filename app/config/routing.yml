@@ -1,9 +1,5 @@
 t_emma:
+    resource: '@TEmmaBundle/Resources/config/routing.yml'
+t_emma:
     resource: "@TEmmaBundle/Controller/"
     type:     annotation
-login:
-    path: "/login"
-    defaults:  { _controller: TEmmaBundle:Secuity:login}
-product_list:
-    path: "/product/list"
-    defaults:  { _controller: TEmmaBundle:Product:list}

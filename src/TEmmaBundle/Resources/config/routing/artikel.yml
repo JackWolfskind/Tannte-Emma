@@ -1,0 +1,24 @@
+artikel_index:
+    path:     /
+    defaults: { _controller: "TEmmaBundle:Artikel:index" }
+    methods:  GET
+
+artikel_show:
+    path:     /{artikelnr}/show
+    defaults: { _controller: "TEmmaBundle:Artikel:show" }
+    methods:  GET
+
+artikel_new:
+    path:     /new
+    defaults: { _controller: "TEmmaBundle:Artikel:new" }
+    methods:  [GET, POST]
+
+artikel_edit:
+    path:     /{artikelnr}/edit
+    defaults: { _controller: "TEmmaBundle:Artikel:edit" }
+    methods:  [GET, POST]
+
+artikel_delete:
+    path:     /{artikelnr}/delete
+    defaults: { _controller: "TEmmaBundle:Artikel:delete" }
+    methods:  DELETE

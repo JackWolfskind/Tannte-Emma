@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Artikels list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Artikelbezeichnung</th>
+                <th>Artikelpreis</th>
+                <th>Artikelbestand</th>
+                <th>Artikelnr</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artikel in artikels %}
+            <tr>
+                <td><a href="{{ path('artikel_show', { 'artikelnr': artikel.artikelnr }) }}">{{ artikel.artikelbezeichnung }}</a></td>
+                <td>{{ artikel.artikelpreis }}</td>
+                <td>{{ artikel.artikelbestand }}</td>
+                <td>{{ artikel.artikelnr }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('artikel_show', { 'artikelnr': artikel.artikelnr }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('artikel_edit', { 'artikelnr': artikel.artikelnr }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('artikel_new') }}">Create a new artikel</a>
+        </li>
+    </ul>
+{% endblock %}
