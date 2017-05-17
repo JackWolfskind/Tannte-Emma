@@ -77,28 +77,28 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `temma`.`Geschaefte` ;
 
 CREATE TABLE IF NOT EXISTS `temma`.`Geschaefte` (
-  `geschäftID` INT NOT NULL,
+  `geschaeftID` INT NOT NULL,
   `Geschäftecol` VARCHAR(45) NULL,
-  `Kunde_kundeNR` INT NOT NULL,
-  `Geschäftsart` INT NOT NULL,
   `Datum` VARCHAR(45) NULL,
-  `angelegtVonMitarbeiter` INT NOT NULL,
-  PRIMARY KEY (`geschäftID`),
-  INDEX `fk_Geschäfte_Kunde_idx` (`Kunde_kundeNR` ASC),
-  INDEX `fk_Geschäfte_Geschäftsart1_idx` (`Geschäftsart` ASC),
-  INDEX `fk_Geschäfte_Mitarbeiter1_idx` (`angelegtVonMitarbeiter` ASC),
-  CONSTRAINT `fk_Geschäfte_Kunde`
-    FOREIGN KEY (`Kunde_kundeNR`)
-    REFERENCES `temma`.`Kunde` (`kundeNR`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Geschäfte_Geschäftsart1`
-    FOREIGN KEY (`Geschäftsart`)
+  `Geschaeftsart` INT NOT NULL,
+  `kundeNR` INT NOT NULL,
+  `angelegtVon` VARCHAR(5) NOT NULL,
+  PRIMARY KEY (`geschaeftID`),
+  INDEX `fk_Geschaefte_Geschaeftsart1_idx` (`Geschaeftsart` ASC),
+  INDEX `fk_Geschaefte_Kunde1_idx` (`kundeNR` ASC),
+  INDEX `fk_Geschaefte_Mitarbeiter1_idx` (`angelegtVon` ASC),
+  CONSTRAINT `fk_Geschaefte_Geschaeftsart1`
+    FOREIGN KEY (`Geschaeftsart`)
     REFERENCES `temma`.`Geschaeftsart` (`ArtID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Geschäfte_Mitarbeiter1`
-    FOREIGN KEY (`angelegtVonMitarbeiter`)
+  CONSTRAINT `fk_Geschaefte_Kunde1`
+    FOREIGN KEY (`kundeNR`)
+    REFERENCES `temma`.`Kunde` (`kundeNR`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Geschaefte_Mitarbeiter1`
+    FOREIGN KEY (`angelegtVon`)
     REFERENCES `temma`.`Mitarbeiter` (`mitarbeiterID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -111,21 +111,21 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `temma`.`Posten` ;
 
 CREATE TABLE IF NOT EXISTS `temma`.`Posten` (
-  `geschäftID` INT NOT NULL,
   `artikelNR` INT NOT NULL,
   `artikelMenge` INT NULL,
   `postenID` VARCHAR(45) NOT NULL,
+  `geschaeftID` INT NOT NULL,
   INDEX `fk_Geschäfte_has_Artikel_Artikel1_idx` (`artikelNR` ASC),
-  INDEX `fk_Geschäfte_has_Artikel_Geschäfte1_idx` (`geschäftID` ASC),
   PRIMARY KEY (`postenID`),
-  CONSTRAINT `fk_Geschäfte_has_Artikel_Geschäfte1`
-    FOREIGN KEY (`geschäftID`)
-    REFERENCES `temma`.`Geschaefte` (`geschäftID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  INDEX `fk_Posten_Geschaefte1_idx` (`geschaeftID` ASC),
   CONSTRAINT `fk_Geschäfte_has_Artikel_Artikel1`
     FOREIGN KEY (`artikelNR`)
     REFERENCES `temma`.`Artikel` (`artikelNR`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Posten_Geschaefte1`
+    FOREIGN KEY (`geschaeftID`)
+    REFERENCES `temma`.`Geschaefte` (`geschaeftID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
