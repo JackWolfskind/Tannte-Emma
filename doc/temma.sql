@@ -34,7 +34,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `temma`.`Kunde` ;
 
 CREATE TABLE IF NOT EXISTS `temma`.`Kunde` (
-  `kundeNR` INT NOT NULL,
+  `kundeNR` INT NOT NULL AUTO_INCREMENT,
   `kundeName` VARCHAR(45) NULL,
   `kundeVorname` VARCHAR(45) NULL,
   `kundeAdresse` VARCHAR(45) NULL,
@@ -49,7 +49,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `temma`.`Geschaeftsart` ;
 
 CREATE TABLE IF NOT EXISTS `temma`.`Geschaeftsart` (
-  `ArtID` INT NOT NULL,
+  `ArtID` INT NOT NULL AUTO_INCREMENT,
   `ArtBezeichnung` VARCHAR(45) NULL,
   PRIMARY KEY (`ArtID`))
 ENGINE = InnoDB;
@@ -77,7 +77,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `temma`.`Geschaefte` ;
 
 CREATE TABLE IF NOT EXISTS `temma`.`Geschaefte` (
-  `geschaeftID` INT NOT NULL,
+  `geschaeftID` INT NOT NULL AUTO_INCREMENT,
   `Geschäftecol` VARCHAR(45) NULL,
   `Datum` VARCHAR(45) NULL,
   `Geschaeftsart` INT NOT NULL,
@@ -113,7 +113,7 @@ DROP TABLE IF EXISTS `temma`.`Posten` ;
 CREATE TABLE IF NOT EXISTS `temma`.`Posten` (
   `artikelNR` INT NOT NULL,
   `artikelMenge` INT NULL,
-  `postenID` VARCHAR(45) NOT NULL,
+  `postenID` INT NOT NULL AUTO_INCREMENT,
   `geschaeftID` INT NOT NULL,
   INDEX `fk_Geschäfte_has_Artikel_Artikel1_idx` (`artikelNR` ASC),
   PRIMARY KEY (`postenID`),

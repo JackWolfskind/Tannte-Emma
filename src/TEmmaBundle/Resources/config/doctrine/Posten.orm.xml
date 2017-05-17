@@ -5,7 +5,7 @@
       <index name="fk_Geschäfte_has_Artikel_Artikel1_idx" columns="artikelNR"/>
       <index name="fk_Posten_Geschaefte1_idx" columns="geschaeftID"/>
     </indexes>
-    <id name="postenid" type="string" column="postenID" length="45">
+    <id name="postenid" type="integer" column="postenID">
       <generator strategy="IDENTITY"/>
     </id>
     <field name="artikelmenge" type="integer" column="artikelMenge" nullable="true">

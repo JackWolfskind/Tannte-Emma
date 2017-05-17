@@ -167,4 +167,91 @@ class Geschaefte
     {
         return $this->angelegtvonmitarbeiter;
     }
+    /**
+     * @var string
+     */
+    private $geschäftecol;
+
+    /**
+     * @var \TEmmaBundle\Entity\Kunde
+     */
+    private $kundenr;
+
+    /**
+     * @var \TEmmaBundle\Entity\Mitarbeiter
+     */
+    private $angelegtvon;
+
+
+    /**
+     * Set geschäftecol
+     *
+     * @param string $geschäftecol
+     *
+     * @return Geschaefte
+     */
+    public function setGeschäftecol($geschäftecol)
+    {
+        $this->geschäftecol = $geschäftecol;
+
+        return $this;
+    }
+
+    /**
+     * Get geschäftecol
+     *
+     * @return string
+     */
+    public function getGeschäftecol()
+    {
+        return $this->geschäftecol;
+    }
+
+    /**
+     * Set kundenr
+     *
+     * @param \TEmmaBundle\Entity\Kunde $kundenr
+     *
+     * @return Geschaefte
+     */
+    public function setKundenr(\TEmmaBundle\Entity\Kunde $kundenr = null)
+    {
+        $this->kundenr = $kundenr;
+
+        return $this;
+    }
+
+    /**
+     * Get kundenr
+     *
+     * @return \TEmmaBundle\Entity\Kunde
+     */
+    public function getKundenr()
+    {
+        return $this->kundenr;
+    }
+
+    /**
+     * Set angelegtvon
+     *
+     * @param \TEmmaBundle\Entity\Mitarbeiter $angelegtvon
+     *
+     * @return Geschaefte
+     */
+    public function setAngelegtvon(\TEmmaBundle\Entity\Mitarbeiter $angelegtvon = null)
+    {
+        $this->angelegtvon = $angelegtvon;
+
+        return $this;
+    }
+
+    /**
+     * Get angelegtvon
+     *
+     * @return \TEmmaBundle\Entity\Mitarbeiter
+     */
+    public function getAngelegtvon()
+    {
+        return $this->angelegtvon;
+    }
 }
