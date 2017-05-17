@@ -114,10 +114,10 @@ CREATE TABLE IF NOT EXISTS `temma`.`Posten` (
   `artikelMenge` INT NULL,
   `postenID` INT NOT NULL AUTO_INCREMENT,
   `geschaeftID` INT NOT NULL,
-  INDEX `fk_Geschäfte_has_Artikel_Artikel1_idx` (`artikelNR` ASC),
+  INDEX `fk_Geschaefte_has_Artikel_Artikel1_idx` (`artikelNR` ASC),
   PRIMARY KEY (`postenID`),
   INDEX `fk_Posten_Geschaefte1_idx` (`geschaeftID` ASC),
-  CONSTRAINT `fk_Geschäfte_has_Artikel_Artikel1`
+  CONSTRAINT `fk_Geschaefte_has_Artikel_Artikel1`
     FOREIGN KEY (`artikelNR`)
     REFERENCES `temma`.`Artikel` (`artikelNR`)
     ON DELETE NO ACTION
