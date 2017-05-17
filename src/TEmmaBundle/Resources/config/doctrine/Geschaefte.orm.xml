@@ -9,11 +9,6 @@
     <id name="geschaeftid" type="integer" column="geschaeftID">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="geschäftecol" type="string" column="Geschäftecol" length="45" nullable="true">
-      <options>
-        <option name="fixed"/>
-      </options>
-    </field>
     <field name="datum" type="string" column="Datum" length="45" nullable="true">
       <options>
         <option name="fixed"/>

@@ -78,7 +78,6 @@ DROP TABLE IF EXISTS `temma`.`Geschaefte` ;
 
 CREATE TABLE IF NOT EXISTS `temma`.`Geschaefte` (
   `geschaeftID` INT NOT NULL AUTO_INCREMENT,
-  `Geschäftecol` VARCHAR(45) NULL,
   `Datum` VARCHAR(45) NULL,
   `Geschaeftsart` INT NOT NULL,
   `kundeNR` INT NOT NULL,
