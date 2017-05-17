@@ -2,6 +2,9 @@ t_emma_artikel:
     resource: "@TEmmaBundle/Resources/config/routing/artikel.yml"
     prefix:   /artikel
 
+t_emma:
+    path:   "/"
+    defaults:  { _controller: TEmmaBundle:Default:index}
 login:
     path: "/login"
     defaults:  { _controller: TEmmaBundle:Secuity:login}
