@@ -1,44 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Mitarbeiter</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Mitarbeitername</th>
-                <td>{{ mitarbeiter.mitarbeitername }}</td>
-            </tr>
-            <tr>
-                <th>Mitarbeitervorname</th>
-                <td>{{ mitarbeiter.mitarbeitervorname }}</td>
-            </tr>
-            <tr>
-                <th>Mitarbeitertelefon</th>
-                <td>{{ mitarbeiter.mitarbeitertelefon }}</td>
-            </tr>
-            <tr>
-                <th>Mitarbeiteradresse</th>
-                <td>{{ mitarbeiter.mitarbeiteradresse }}</td>
-            </tr>
-            <tr>
-                <th>Mitarbeiternr</th>
-                <td>{{ mitarbeiter.mitarbeiternr }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('mitarbeiter_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('mitarbeiter_edit', { 'mitarbeiternr': mitarbeiter.mitarbeiternr }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="box">
+        <div class="box-header with-border">
+            <h1 class="box-title" >Mitarbeiter</h1>
+        </div>
+        <div class="box-body">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Mitarbeitername</th>
+                        <td>{{ mitarbeiter.mitarbeitername }}</td>
+                    </tr>
+                    <tr>
+                        <th>Mitarbeitervorname</th>
+                        <td>{{ mitarbeiter.mitarbeitervorname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Mitarbeitertelefon</th>
+                        <td>{{ mitarbeiter.mitarbeitertelefon }}</td>
+                    </tr>
+                    <tr>
+                        <th>Mitarbeiteradresse</th>
+                        <td>{{ mitarbeiter.mitarbeiteradresse }}</td>
+                    </tr>
+                    <tr>
+                        <th>Mitarbeiternr</th>
+                        <td>{{ mitarbeiter.mitarbeiternr }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul>
+                <li>
+                    <a href="{{ path('mitarbeiter_index') }}">Back to the list</a>
+                </li>
+                <li>
+                    <a href="{{ path('mitarbeiter_edit', { 'mitarbeiternr': mitarbeiter.mitarbeiternr }) }}">Edit</a>
+                </li>
+                <li>
+                    {{ form_start(delete_form) }}
+                    <input type="submit" value="Delete">
+                    {{ form_end(delete_form) }}
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

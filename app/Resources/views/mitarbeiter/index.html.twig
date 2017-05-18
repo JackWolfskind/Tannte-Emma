@@ -1,45 +1,49 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
-    <h1>Mitarbeiters list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Mitarbeitername</th>
-                <th>Mitarbeitervorname</th>
-                <th>Mitarbeitertelefon</th>
-                <th>Mitarbeiteradresse</th>
-                <th>Mitarbeiternr</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for mitarbeiter in mitarbeiters %}
-            <tr>
-                <td><a href="{{ path('mitarbeiter_show', { 'mitarbeiternr': mitarbeiter.mitarbeiternr }) }}">{{ mitarbeiter.mitarbeitername }}</a></td>
-                <td>{{ mitarbeiter.mitarbeitervorname }}</td>
-                <td>{{ mitarbeiter.mitarbeitertelefon }}</td>
-                <td>{{ mitarbeiter.mitarbeiteradresse }}</td>
-                <td>{{ mitarbeiter.mitarbeiternr }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('mitarbeiter_show', { 'mitarbeiternr': mitarbeiter.mitarbeiternr }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('mitarbeiter_edit', { 'mitarbeiternr': mitarbeiter.mitarbeiternr }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('mitarbeiter_new') }}">Create a new mitarbeiter</a>
-        </li>
-    </ul>
+    <div class="box">
+        <div class="box-header with-border">
+            <h1 class="box-title" >Mitarbeiters list</h1>
+        </div>
+        <div class="box-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Mitarbeitername</th>
+                        <th>Mitarbeitervorname</th>
+                        <th>Mitarbeitertelefon</th>
+                        <th>Mitarbeiteradresse</th>
+                        <th>Mitarbeiternr</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mitarbeiter in mitarbeiters %}
+                        <tr>
+                            <td><a href="{{ path('mitarbeiter_show', { 'mitarbeiternr': mitarbeiter.mitarbeiternr }) }}">{{ mitarbeiter.mitarbeitername }}</a></td>
+                            <td>{{ mitarbeiter.mitarbeitervorname }}</td>
+                            <td>{{ mitarbeiter.mitarbeitertelefon }}</td>
+                            <td>{{ mitarbeiter.mitarbeiteradresse }}</td>
+                            <td>{{ mitarbeiter.mitarbeiternr }}</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('mitarbeiter_show', { 'mitarbeiternr': mitarbeiter.mitarbeiternr }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('mitarbeiter_edit', { 'mitarbeiternr': mitarbeiter.mitarbeiternr }) }}">edit</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <ul>
+                <li>
+                    <a href="{{ path('mitarbeiter_new') }}">Create a new mitarbeiter</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}
+
