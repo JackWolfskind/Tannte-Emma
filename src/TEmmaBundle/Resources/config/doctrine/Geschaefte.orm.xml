@@ -29,5 +29,10 @@
         <join-column name="angelegtVon" referenced-column-name="mitarbeiterID"/>
       </join-columns>
     </many-to-one>
+<!--    <many-to-one field="geschaeftsart" target-entity="Geschaeftsart" fetch="LAZY">
+      <join-columns>
+        <join-column name="ArtID" referenced-column-name="Geschaeftsart"/>
+      </join-columns>
+    </many-to-one>-->
   </entity>
 </doctrine-mapping>
