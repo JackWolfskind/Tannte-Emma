@@ -51,4 +51,8 @@ class Geschaeftsart
     {
         return $this->artid;
     }
+    
+    public function __toString() {
+        return $this->artbezeichnung;
+    }
 }

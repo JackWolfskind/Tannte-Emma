@@ -10,5 +10,4 @@ namespace TEmmaBundle\Repository;
  */
 class MitarbeiterRepository extends \Doctrine\ORM\EntityRepository
 {
-    
 }

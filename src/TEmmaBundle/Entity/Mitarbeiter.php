@@ -167,4 +167,14 @@ class Mitarbeiter
     {
         return $this->mitarbeiterid;
     }
+    
+    public function createId() {
+        $id = substr($this->mitarbeitervorname, 0, 1);
+        $id = $id . $this->mitarbeitername;
+        return substr($id, 0, 5);
+    }
+    
+    public function __toString() {
+        return $this->mitarbeitername . " " . $this->mitarbeitervorname;
+    }
 }
