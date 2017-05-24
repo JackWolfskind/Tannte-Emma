@@ -175,6 +175,6 @@ class Mitarbeiter
     }
     
     public function __toString() {
-        return $this->mitarbeitername . " " . $this->mitarbeitervorname;
+        return $this->mitarbeitername . ", " . $this->mitarbeitervorname;
     }
 }

@@ -109,4 +109,8 @@ class Artikel
     {
         return $this->artikelnr;
     }
+    
+    public function __toString() {
+        return $this->artikelbezeichnung;
+    }
 }

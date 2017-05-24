@@ -140,6 +140,6 @@ class Kunde
     }
     
     public function __toString() {
-        return $this->kundename . " " . $this->kundevorname;
+        return $this->kundename . ", " . $this->kundevorname;
     }
 }
