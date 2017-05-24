@@ -13,8 +13,12 @@
                 <td>{{ geschaefte.datum }}</td>
             </tr>
             <tr>
-                <th>Geschaeftid</th>
-                <td>{{ geschaefte.geschaeftid }}</td>
+                <th>Bearbeiter</th>
+                <td>{{ geschaefte.angelegtvon }}</td>
+            </tr>
+            <tr>
+                <th>Kunde</th>
+                <th><a href="{{ path('kunde_show', { 'kundennr': geschaefte.kundennr }) }}">Kunde</a></th>
             </tr>
         </tbody>
                 </table>

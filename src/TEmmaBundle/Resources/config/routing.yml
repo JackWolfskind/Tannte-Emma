@@ -23,5 +23,5 @@ login:
     path: "/login"
     defaults:  { _controller: TEmmaBundle:Secuity:login}
 t_emma_search:
-    path: "/search"
+    path: "/search/"
     defaults:  { _controller: TEmmaBundle:Default:search}

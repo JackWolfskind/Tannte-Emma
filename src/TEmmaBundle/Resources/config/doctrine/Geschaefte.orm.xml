@@ -9,7 +9,7 @@
     <id name="geschaeftid" type="integer" column="geschaeftID">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="datum" type="string" column="Datum" length="45" nullable="true">
+    <field name="datum" type="date" column="Datum" length="45" nullable="true">
       <options>
         <option name="fixed"/>
       </options>
