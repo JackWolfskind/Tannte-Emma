@@ -7,12 +7,11 @@ use Doctrine\ORM\Mapping\CustomIdGenerator;
 use TEmmaBundle\Repository\MitarbeiterIdGenerator;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-
 /**
  * Mitarbeiter
  */
-class Mitarbeiter
-{
+class Mitarbeiter implements UserInterface, \Serializable {
+
     /**
      * @var string
      */
@@ -52,8 +51,7 @@ class Mitarbeiter
      *
      * @return Mitarbeiter
      */
-    public function setMitarbeitername($mitarbeitername)
-    {
+    public function setMitarbeitername($mitarbeitername) {
         $this->mitarbeitername = $mitarbeitername;
 
         return $this;
@@ -64,8 +62,7 @@ class Mitarbeiter
      *
      * @return string
      */
-    public function getMitarbeitername()
-    {
+    public function getMitarbeitername() {
         return $this->mitarbeitername;
     }
 
@@ -76,8 +73,7 @@ class Mitarbeiter
      *
      * @return Mitarbeiter
      */
-    public function setMitarbeitervorname($mitarbeitervorname)
-    {
+    public function setMitarbeitervorname($mitarbeitervorname) {
         $this->mitarbeitervorname = $mitarbeitervorname;
 
         return $this;
@@ -88,8 +84,7 @@ class Mitarbeiter
      *
      * @return string
      */
-    public function getMitarbeitervorname()
-    {
+    public function getMitarbeitervorname() {
         return $this->mitarbeitervorname;
     }
 
@@ -100,8 +95,7 @@ class Mitarbeiter
      *
      * @return Mitarbeiter
      */
-    public function setMitarbeitertelefon($mitarbeitertelefon)
-    {
+    public function setMitarbeitertelefon($mitarbeitertelefon) {
         $this->mitarbeitertelefon = $mitarbeitertelefon;
 
         return $this;
@@ -112,8 +106,7 @@ class Mitarbeiter
      *
      * @return string
      */
-    public function getMitarbeitertelefon()
-    {
+    public function getMitarbeitertelefon() {
         return $this->mitarbeitertelefon;
     }
 
@@ -124,8 +117,7 @@ class Mitarbeiter
      *
      * @return Mitarbeiter
      */
-    public function setMitarbeiteradresse($mitarbeiteradresse)
-    {
+    public function setMitarbeiteradresse($mitarbeiteradresse) {
         $this->mitarbeiteradresse = $mitarbeiteradresse;
 
         return $this;
@@ -136,8 +128,7 @@ class Mitarbeiter
      *
      * @return string
      */
-    public function getMitarbeiteradresse()
-    {
+    public function getMitarbeiteradresse() {
         return $this->mitarbeiteradresse;
     }
 
@@ -148,8 +139,7 @@ class Mitarbeiter
      *
      * @return Mitarbeiter
      */
-    public function setPasswd($passwd)
-    {
+    public function setPasswd($passwd) {
         $this->passwd = $passwd;
 
         return $this;
@@ -160,8 +150,7 @@ class Mitarbeiter
      *
      * @return string
      */
-    public function getPasswd()
-    {
+    public function getPasswd() {
         return $this->passwd;
     }
 
@@ -170,18 +159,52 @@ class Mitarbeiter
      *
      * @return string
      */
-    public function getMitarbeiterid()
-    {
+    public function getMitarbeiterid() {
         return $this->mitarbeiterid;
     }
-    
+
     public function createId() {
         $id = substr($this->mitarbeitervorname, 0, 1);
         $id = $id . $this->mitarbeitername;
         $this->mitarbeiterid = substr($id, 0, 5);
     }
-    
+
     public function __toString() {
         return $this->mitarbeitername . ", " . $this->mitarbeitervorname;
     }
+
+    public function serialize() {
+        return serialize(array(
+            $this->mitarbeiterid,
+            $this->passwd,
+        ));
+    }
+
+    public function unserialize($serialized) {
+        list (
+                $this->mitarbeiterid,
+                $this->passwd,
+                ) = unserialize($serialized);
+    }
+
+    public function getRoles() {
+        return array("ROLE_ADMIN");
+    }
+
+    public function getPassword() {
+        return $this->getPasswd();
+    }
+
+    public function getSalt() {
+        return null;
+    }
+
+    public function getUsername() {
+        return $this->getMitarbeiterid();
+    }
+
+    public function eraseCredentials() {
+        
+    }
+
 }
