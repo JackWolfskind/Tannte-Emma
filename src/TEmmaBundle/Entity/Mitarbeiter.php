@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * Mitarbeiter
  */
-class Mitarbeiter implements UserInterface, \Serializable
+class Mitarbeiter
 {
     /**
      * @var string
