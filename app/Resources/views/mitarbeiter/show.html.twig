@@ -25,8 +25,8 @@
                         <td>{{ mitarbeiter.mitarbeiteradresse }}</td>
                     </tr>
                     <tr>
-                        <th>Mitarbeiternr</th>
-                        <td>{{ mitarbeiter.mitarbeiternr }}</td>
+                        <th>mitarbeiterid</th>
+                        <td>{{ mitarbeiter.mitarbeiterid }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -35,7 +35,7 @@
                     <a href="{{ path('mitarbeiter_index') }}">Back to the list</a>
                 </li>
                 <li>
-                    <a href="{{ path('mitarbeiter_edit', { 'mitarbeiternr': mitarbeiter.mitarbeiternr }) }}">Edit</a>
+                    <a href="{{ path('mitarbeiter_edit', { 'mitarbeiterid': mitarbeiter.mitarbeiterid }) }}">Edit</a>
                 </li>
                 <li>
                     {{ form_start(delete_form) }}

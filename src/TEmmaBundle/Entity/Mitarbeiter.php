@@ -2,10 +2,16 @@
 
 namespace TEmmaBundle\Entity;
 
+use Doctrine\ORM\Mapping\GeneratedValue;
+use Doctrine\ORM\Mapping\CustomIdGenerator;
+use TEmmaBundle\Repository\MitarbeiterIdGenerator;
+use Symfony\Component\Security\Core\User\UserInterface;
+
+
 /**
  * Mitarbeiter
  */
-class Mitarbeiter
+class Mitarbeiter implements UserInterface, \Serializable
 {
     /**
      * @var string
@@ -34,9 +40,10 @@ class Mitarbeiter
 
     /**
      * @var string
+     * @GeneratedValue(strategy="CUSTOM") 
+     * @CustomIdGenerator(class="TEmmaBundle\Repository\MitarbeiterIdGenerator")
      */
     private $mitarbeiterid;
-
 
     /**
      * Set mitarbeitername
@@ -171,7 +178,7 @@ class Mitarbeiter
     public function createId() {
         $id = substr($this->mitarbeitervorname, 0, 1);
         $id = $id . $this->mitarbeitername;
-        return substr($id, 0, 5);
+        $this->mitarbeiterid = substr($id, 0, 5);
     }
     
     public function __toString() {
