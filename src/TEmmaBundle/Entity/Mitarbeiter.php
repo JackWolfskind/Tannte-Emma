@@ -2,6 +2,7 @@
 
 namespace TEmmaBundle\Entity;
 
+use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\CustomIdGenerator;
 use TEmmaBundle\Repository\MitarbeiterIdGenerator;
@@ -39,6 +40,7 @@ class Mitarbeiter implements UserInterface, \Serializable {
 
     /**
      * @var string
+     * @Id
      * @GeneratedValue(strategy="CUSTOM") 
      * @CustomIdGenerator(class="TEmmaBundle\Repository\MitarbeiterIdGenerator")
      */
@@ -53,6 +55,12 @@ class Mitarbeiter implements UserInterface, \Serializable {
      */
     public function setMitarbeitername($mitarbeitername) {
         $this->mitarbeitername = $mitarbeitername;
+
+        return $this;
+    }
+    
+    public function setMitarbeiterid($mitarbeiterid) {
+        $this->mitarbeiterid = $mitarbeiterid;
 
         return $this;
     }

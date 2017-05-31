@@ -5,7 +5,6 @@ namespace TEmmaBundle\Controller;
 use TEmmaBundle\Entity\Mitarbeiter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use TEmmaBundle\Repository\MitarbeiterIdGenerator;
 
 /**
  * Mitarbeiter controller.
@@ -22,7 +21,7 @@ class MitarbeiterController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $mitarbeiters = $em->getRepository('TEmmaBundle:Mitarbeiter')->findAll();
-        
+
         return $this->render('mitarbeiter/index.html.twig', array(
             'mitarbeiters' => $mitarbeiters,
         ));
@@ -39,9 +38,12 @@ class MitarbeiterController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $mitarbeiter->createID();
-            $this->get('Logger')->debug($mitarbeiter->getMitarbeiterid());
             $em = $this->getDoctrine()->getManager();
+            $mitarbeiter->createID();
+            
+            $password = $this->get('security.password_encoder')->encodePassword($mitarbeiter, $mitarbeiter->getPasswd());
+            $mitarbeiter->setPasswd($password);
+            
             $em->persist($mitarbeiter);
             $em->flush();
 
@@ -81,7 +83,7 @@ class MitarbeiterController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('mitarbeiter_edit', array('mitarbeiterid' => $mitarbeiter->getmitarbeiterid()));
+            return $this->redirectToRoute('mitarbeiter_edit', array('mitarbeiterid' => $mitarbeiter->getMitarbeiterid()));
         }
 
         return $this->render('mitarbeiter/edit.html.twig', array(
@@ -119,7 +121,7 @@ class MitarbeiterController extends Controller
     private function createDeleteForm(Mitarbeiter $mitarbeiter)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('mitarbeiter_delete', array('mitarbeiterid' => $mitarbeiter->getmitarbeiterid())))
+            ->setAction($this->generateUrl('mitarbeiter_delete', array('mitarbeiterid' => $mitarbeiter->getMitarbeiterid())))
             ->setMethod('DELETE')
             ->getForm()
         ;

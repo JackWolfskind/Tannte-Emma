@@ -7,7 +7,7 @@ use Doctrine\ORM\EntityManager as EntityManager;
 
 class MitarbeiterIdGenerator extends AbstractIdGenerator {
     public function generate(EntityManager $em, $entity){
-        return 0;
+        return $entity->createId();
     }
 }
 ?>
