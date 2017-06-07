@@ -22,12 +22,12 @@
                 <td>{{ artikel.artikelbestand }}</td>
                 <td>{{ artikel.artikelnr }}</td>
                 <td>
-                    
+                    <div class="btn-group" role="group">
                             <a href="{{ path('artikel_show', { 'artikelnr': artikel.artikelnr }) }}" class="btn btn-sm btn-info">show</a>
                         
                         
                             <a href="{{ path('artikel_edit', { 'artikelnr': artikel.artikelnr }) }}" class="btn btn-sm btn-warning">edit</a>
-                   
+					</div>
                 </td>
             </tr>
         {% endfor %}

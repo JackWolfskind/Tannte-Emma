@@ -3,7 +3,7 @@
 {% block body %}
     <div class="box">
         <div class="box-header with-border">
-            <h1 class="box-title" >Artikels list</h1>
+            <h1 class="box-title" >Artikelliste</h1>
         </div>
         <div class="box-body">
             <table class="table table-bordered">
@@ -26,19 +26,15 @@
                     </tr>
                 </tbody>
                 </table>
-                <ul>
-                    <li>
-                        <a href="{{ path('artikel_index') }}">Back to the list</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('artikel_edit', { 'artikelnr': artikel.artikelnr }) }}">Edit</a>
-                    </li>
-                    <li>
+                
+                        <a href="{{ path('artikel_index') }}" class="btn btn-block btn-info" style="margin-top: 6px;">Back to the list</a>
+                    
+                        <a href="{{ path('artikel_edit', { 'artikelnr': artikel.artikelnr }) }}" class="btn btn-block btn-warning">Edit</a>
+                    
                         {{ form_start(delete_form) }}
-                        <input type="submit" value="Delete">
+                        <input type="submit" value="Delete" class="btn btn-block btn-danger" style="margin-top: 6px;">
                         {{ form_end(delete_form) }}
-                    </li>
-                </ul>
+               
         </div>
     </div>
 {% endblock %}
