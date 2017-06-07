@@ -1,21 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="box">
-        <div class="box-header with-border">
-            <h1 class="box-title" >Artikel creation</h1>
-        </div>
-        <div class="box-body">
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            <input type="submit" value="Create" />
-            {{ form_end(form) }}
 
-            <ul>
-                <li>
-                    <a href="{{ path('artikel_index') }}">Back to the list</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <h1>Artikel anlegen</h1>
+	
+    {{ form_start(form) }}
+        {{ form_widget(form) }} 
+        <input type="submit" value="Create" class="btn btn-block btn-success"/>
+    {{ form_end(form) }}
+	
+    
+            <a href="{{ path('artikel_index') }}" class="btn btn-block btn-info">Back to the list</a>
+        
 {% endblock %}
