@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <div class="box-header with-border">
-        <h1 class="box-title" >Postens list</h1>
+        <h1 class="box-title" >Postenliste</h1>
     </div>
     <div class="box-body">
         <table class="table table-hover">
@@ -18,24 +18,19 @@
                         <td><a href="{{ path('posten_show', { 'postenid': posten.postenid }) }}">{{ posten.artikelmenge }}</a></td>
                         <td>{{ posten.postenid }}</td>
                         <td>
-                            <ul>
-                                <li>
-                                    <a href="{{ path('posten_show', { 'postenid': posten.postenid }) }}">show</a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('posten_edit', { 'postenid': posten.postenid }) }}">edit</a>
-                                </li>
-                            </ul>
+							<div class="btn-group" role="group">
+                                    <a href="{{ path('posten_show', { 'postenid': posten.postenid }) }}" class="btn btn-sm btn-info">show</a>
+                                
+                                    <a href="{{ path('posten_edit', { 'postenid': posten.postenid }) }}" class="btn btn-sm btn-warning">edit</a>
+                            </div>    
                         </td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <ul>
-            <li>
-                <a href="{{ path('posten_new') }}">Create a new posten</a>
-            </li>
-        </ul>
+        
+                <a href="{{ path('posten_new') }}" class="btn btn-block btn-success">Create a new posten</a>
+   
     </div>
 {% endblock %}
 
