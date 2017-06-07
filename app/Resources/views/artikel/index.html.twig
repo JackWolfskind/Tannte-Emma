@@ -1,47 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="box">
-        <div class="box-header with-border">
-            <h1 class="box-title" >Artikels list</h1>
-        </div>
-        <div class="box-body">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Artikelbezeichnung</th>
-                        <th>Artikelpreis</th>
-                        <th>Artikelbestand</th>
-                        <th>Artikelnr</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for artikel in artikels %}
-                        <tr>
-                            <td><a href="{{ path('artikel_show', { 'artikelnr': artikel.artikelnr }) }}">{{ artikel.artikelbezeichnung }}</a></td>
-                            <td>{{ artikel.artikelpreis }}</td>
-                            <td>{{ artikel.artikelbestand }}</td>
-                            <td>{{ artikel.artikelnr }}</td>
-                            <td>
-                                <ul>
-                                    <li>
-                                        <a href="{{ path('artikel_show', { 'artikelnr': artikel.artikelnr }) }}">show</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('artikel_edit', { 'artikelnr': artikel.artikelnr }) }}">edit</a>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <ul>
-                <li>
-                    <a href="{{ path('artikel_new') }}">Create a new artikel</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+
+    <h1>Artikelliste</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Artikelbezeichnung</th>
+                <th>Artikelpreis</th>
+                <th>Artikelbestand</th>
+                <th>Artikelnr</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artikel in artikels %}
+            <tr>
+                <td><a href="{{ path('artikel_show', { 'artikelnr': artikel.artikelnr }) }}">{{ artikel.artikelbezeichnung }}</a></td>
+                <td>{{ artikel.artikelpreis }}</td>
+                <td>{{ artikel.artikelbestand }}</td>
+                <td>{{ artikel.artikelnr }}</td>
+                <td>
+                    <div class="btn-group" role="group">
+                            <a href="{{ path('artikel_show', { 'artikelnr': artikel.artikelnr }) }}" class="btn btn-sm btn-info">show</a>
+                        
+                        
+                            <a href="{{ path('artikel_edit', { 'artikelnr': artikel.artikelnr }) }}" class="btn btn-sm btn-warning">edit</a>
+					</div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+            <a href="{{ path('artikel_new') }}" class="btn btn-success btn-block">Create a new artikel</a>
+
+ 
+
 {% endblock %}

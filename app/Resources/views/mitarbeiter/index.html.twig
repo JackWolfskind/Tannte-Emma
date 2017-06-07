@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Mitarbeiters list</h1>
+    <h1>Mitarbeiterliste</h1>
 
     <table class="table table-hover">
         <thead>
@@ -21,26 +21,20 @@
                 <td>{{ mitarbeiter.mitarbeitertelefon }}</td>
                 <td>{{ mitarbeiter.mitarbeiteradresse }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('mitarbeiter_show', { 'mitarbeiterid': mitarbeiter.mitarbeiterid }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('mitarbeiter_edit', { 'mitarbeiterid': mitarbeiter.mitarbeiterid }) }}">edit</a>
-                        </li>
-                        <li>
+                    <div class="btn-group" role="group">
+                            <a href="{{ path('mitarbeiter_show', { 'mitarbeiterid': mitarbeiter.mitarbeiterid }) }}" class="btn btn-info btn-sm">show</a>
+                        
+                            <a href="{{ path('mitarbeiter_edit', { 'mitarbeiterid': mitarbeiter.mitarbeiterid }) }}" class="btn btn-warning btn-sm">edit</a>
+                    </div>   
 
-                        </li>
-                    </ul>
+                      
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('mitarbeiter_new') }}">Create a new mitarbeiter</a>
-        </li>
-    </ul>
+    
+            <a href="{{ path('mitarbeiter_new') }}" class="btn btn-block btn-success">Create a new Mitarbeiter</a>
+      
 {% endblock %}
