@@ -9,16 +9,20 @@
                 <thead>
                     <tr>
                         <th>Datum</th>
+                        <th>Art</th>
                         <th>Bearbeiter</th>
-                        <th>Actions</th>
                         <th>Kunde</th>
+                        <th>Actions</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     {% for geschaefte in geschaeftes %}
                         <tr>
-                            <td><a href="{{ path('geschaefte_show', { 'geschaeftid': geschaefte.geschaeftid }) }}">{{ geschaefte.datum }}</a></td>
+                            <td><a href="{{ path('geschaefte_show', { 'geschaeftid': geschaefte.geschaeftid }) }}">{{ geschaefte.datum | date("d/m/Y")}}</a></td>
+                            <td>{{ geschaefte.geschaeftsart }}</td>
                             <td>{{ geschaefte.angelegtvon }}</td>
+                            <td><a href="{{ path('kunde_show', { 'kundenr': geschaefte.kundenr }) }}">Kunde</a></td>
                             <td>
                                 <ul>
                                     <li>
@@ -27,9 +31,7 @@
                                     <li>
                                         <a href="{{ path('geschaefte_edit', { 'geschaeftid': geschaefte.geschaeftid }) }}">edit</a>
                                     </li>
-                                    <li>
-                                        <a href="{{ path('kunde_show', { 'kundennr': geschaefte.kundennr }) }}">Kunde</a></th>
-                                    </li>
+
                                 </ul>
                             </td>
                         </tr>

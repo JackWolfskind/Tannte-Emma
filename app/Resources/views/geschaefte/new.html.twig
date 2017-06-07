@@ -8,9 +8,14 @@
         <div class="box-body">
             {{ form_start(form) }}
             {{ form_widget(form) }}
+
+            <h3>Posten</h3>
+            <ul class="posten" data-prototype="{{ form_row(form.posten.vars.prototype)|e('html_attr') }}">
+{#               {{ form_widget(form.posten.vars.prototype.artikelmenge)|e }}
+               {{ form_widget(form.posten.vars.prototype.artikelnr)|e }}#}
+            </ul>
             <input type="submit" value="Create" />
             {{ form_end(form) }}
-
             <ul>
                 <li>
                     <a href="{{ path('geschaefte_index') }}">Back to the list</a>
