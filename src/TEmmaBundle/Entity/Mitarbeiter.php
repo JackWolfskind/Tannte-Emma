@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\CustomIdGenerator;
 use TEmmaBundle\Repository\MitarbeiterIdGenerator;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Mitarbeiter
@@ -25,6 +26,9 @@ class Mitarbeiter implements UserInterface, \Serializable {
 
     /**
      * @var string
+     * @Assert\Regex(
+     *     pattern="/\d{1,5}\/\d{1,15}/",
+     *     message="Ungültige Telefonnummer")
      */
     private $mitarbeitertelefon;
 
