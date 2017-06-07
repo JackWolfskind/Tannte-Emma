@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Artikels list</h1>
+    <h1>Artikelliste</h1>
 
-    <table>
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Artikelbezeichnung</th>
@@ -21,23 +21,20 @@
                 <td>{{ artikel.artikelbestand }}</td>
                 <td>{{ artikel.artikelnr }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('artikel_show', { 'artikelnr': artikel.artikelnr }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('artikel_edit', { 'artikelnr': artikel.artikelnr }) }}">edit</a>
-                        </li>
-                    </ul>
+                    
+                            <a href="{{ path('artikel_show', { 'artikelnr': artikel.artikelnr }) }}" class="btn btn-sm btn-info">show</a>
+                        
+                        
+                            <a href="{{ path('artikel_edit', { 'artikelnr': artikel.artikelnr }) }}" class="btn btn-sm btn-warning">edit</a>
+                   
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('artikel_new') }}">Create a new artikel</a>
-        </li>
-    </ul>
+    
+            <a href="{{ path('artikel_new') }}" class="btn btn-success btn-block">Create a new artikel</a>
+
+ 
 {% endblock %}
