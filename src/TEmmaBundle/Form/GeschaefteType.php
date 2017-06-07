@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class GeschaefteType extends AbstractType
 {
@@ -18,7 +19,13 @@ class GeschaefteType extends AbstractType
                 ->add('datum')
                 ->add('geschaeftsart')
                 ->add('kundenr')
-                ->add('angelegtvon');
+                ->add('angelegtvon')
+                ->add('posten', CollectionType::class,array(
+                    'entry_type' => PostenType::class,
+                    'allow_add'  => true,
+                    'by_reference' => false,
+                ));
+          //$builder->add('posten', CollectionType::class, array('type' => new PostenType()));
     }
     
     /**

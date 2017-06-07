@@ -1,7 +1,7 @@
 <?php
 
 namespace TEmmaBundle\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Geschaefte
  */
@@ -11,6 +11,12 @@ class Geschaefte
      * @var string
      */
     private $datum;
+    
+    /**
+     *
+     * @var ArrayCollection
+     */
+    private $posten;
 
     /**
      * @var integer
@@ -32,7 +38,9 @@ class Geschaefte
      */
     private $angelegtvon;
 
-
+    public function __construct() {
+        $this->posten = new ArrayCollection();
+    }
     /**
      * Set datum
      *
@@ -55,6 +63,24 @@ class Geschaefte
     public function getDatum()
     {
         return $this->datum;
+    }
+    /**
+     * Get posten
+     *
+     * @return ArrayCollection
+     */
+    public function getPosten() 
+    {
+        return $this->posten;
+    }
+        public function addPosten(Posten $posten)
+    {
+        $this->posten->add($posten);
+    }
+
+    public function removePosten(Posten $posten)
+    {
+        // ...
     }
 
     /**
@@ -138,5 +164,11 @@ class Geschaefte
     {
         return $this->angelegtvon;
     }
-}
 
+    public function __toString() {
+        if (isset($this->geschaeftid)) {
+            return (string) $this->geschaeftid;
+        }
+    }
+
+}
