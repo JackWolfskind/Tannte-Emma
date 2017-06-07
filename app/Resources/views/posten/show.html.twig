@@ -1,32 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Posten</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Artikelmenge</th>
-                <td>{{ posten.artikelmenge }}</td>
-            </tr>
-            <tr>
-                <th>Postenid</th>
-                <td>{{ posten.postenid }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('posten_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('posten_edit', { 'postenid': posten.postenid }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="box">
+        <div class="box-header with-border">
+            <h1 class="box-title" >Artikelmenge</h1>
+        </div>
+        <div class="box-body">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Artikelmenge</th>
+                        <td>{{ posten.artikelmenge }}</td>
+                    </tr>
+                    <tr>
+                        <th>Postenid</th>
+                        <td>{{ posten.postenid }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul>
+                <li>
+                    <a href="{{ path('posten_index') }}">Back to the list</a>
+                </li>
+                <li>
+                    <a href="{{ path('posten_edit', { 'postenid': posten.postenid }) }}">Edit</a>
+                </li>
+                <li>
+                    {{ form_start(delete_form) }}
+                    <input type="submit" value="Delete">
+                    {{ form_end(delete_form) }}
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

@@ -4,6 +4,8 @@ namespace TEmmaBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class MitarbeiterType extends AbstractType
@@ -13,7 +15,13 @@ class MitarbeiterType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('mitarbeitername')->add('mitarbeitervorname')->add('mitarbeitertelefon')->add('mitarbeiteradresse');
+        $builder
+                ->add('mitarbeitername')
+                ->add('mitarbeitervorname')
+                ->add('mitarbeitertelefon')
+                ->add('mitarbeiteradresse')
+                ->add('passwd', PasswordType::CLASS);
+                //>add('mitarbeiterid');
     }
     
     /**

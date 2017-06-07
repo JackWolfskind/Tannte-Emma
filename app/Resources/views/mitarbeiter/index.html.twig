@@ -3,32 +3,33 @@
 {% block body %}
     <h1>Mitarbeiters list</h1>
 
-    <table>
+    <table class="table table-hover">
         <thead>
             <tr>
+                <th>Mitarbeiterid</th>                
                 <th>Mitarbeitername</th>
-                <th>Mitarbeitervorname</th>
                 <th>Mitarbeitertelefon</th>
                 <th>Mitarbeiteradresse</th>
-                <th>Mitarbeiternr</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for mitarbeiter in mitarbeiters %}
             <tr>
-                <td><a href="{{ path('mitarbeiter_show', { 'mitarbeiternr': mitarbeiter.mitarbeiternr }) }}">{{ mitarbeiter.mitarbeitername }}</a></td>
-                <td>{{ mitarbeiter.mitarbeitervorname }}</td>
+                <td><a href="{{ path('mitarbeiter_show', { 'mitarbeiterid': mitarbeiter.mitarbeiterid }) }}">{{ mitarbeiter.mitarbeiterid }}</a></td>
+                <td>{{ mitarbeiter.mitarbeitervorname }} {{ mitarbeiter.mitarbeitername }}</td>
                 <td>{{ mitarbeiter.mitarbeitertelefon }}</td>
                 <td>{{ mitarbeiter.mitarbeiteradresse }}</td>
-                <td>{{ mitarbeiter.mitarbeiternr }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('mitarbeiter_show', { 'mitarbeiternr': mitarbeiter.mitarbeiternr }) }}">show</a>
+                            <a href="{{ path('mitarbeiter_show', { 'mitarbeiterid': mitarbeiter.mitarbeiterid }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('mitarbeiter_edit', { 'mitarbeiternr': mitarbeiter.mitarbeiternr }) }}">edit</a>
+                            <a href="{{ path('mitarbeiter_edit', { 'mitarbeiterid': mitarbeiter.mitarbeiterid }) }}">edit</a>
+                        </li>
+                        <li>
+
                         </li>
                     </ul>
                 </td>

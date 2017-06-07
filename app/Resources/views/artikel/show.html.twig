@@ -1,40 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Artikel</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Artikelbezeichnung</th>
-                <td>{{ artikel.artikelbezeichnung }}</td>
-            </tr>
-            <tr>
-                <th>Artikelpreis</th>
-                <td>{{ artikel.artikelpreis }}</td>
-            </tr>
-            <tr>
-                <th>Artikelbestand</th>
-                <td>{{ artikel.artikelbestand }}</td>
-            </tr>
-            <tr>
-                <th>Artikelnr</th>
-                <td>{{ artikel.artikelnr }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('artikel_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('artikel_edit', { 'artikelnr': artikel.artikelnr }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="box">
+        <div class="box-header with-border">
+            <h1 class="box-title" >Artikels list</h1>
+        </div>
+        <div class="box-body">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Artikelbezeichnung</th>
+                        <td>{{ artikel.artikelbezeichnung }}</td>
+                    </tr>
+                    <tr>
+                        <th>Artikelpreis</th>
+                        <td>{{ artikel.artikelpreis }}</td>
+                    </tr>
+                    <tr>
+                        <th>Artikelbestand</th>
+                        <td>{{ artikel.artikelbestand }}</td>
+                    </tr>
+                    <tr>
+                        <th>Artikelnr</th>
+                        <td>{{ artikel.artikelnr }}</td>
+                    </tr>
+                </tbody>
+                </table>
+                <ul>
+                    <li>
+                        <a href="{{ path('artikel_index') }}">Back to the list</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('artikel_edit', { 'artikelnr': artikel.artikelnr }) }}">Edit</a>
+                    </li>
+                    <li>
+                        {{ form_start(delete_form) }}
+                        <input type="submit" value="Delete">
+                        {{ form_end(delete_form) }}
+                    </li>
+                </ul>
+        </div>
+    </div>
 {% endblock %}

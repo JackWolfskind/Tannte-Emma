@@ -1,45 +1,48 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
-    <h1>Kundes list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Kundename</th>
-                <th>Kundevorname</th>
-                <th>Kundeadresse</th>
-                <th>Kundelieferhinweis</th>
-                <th>Kundenr</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for kunde in kundes %}
-            <tr>
-                <td><a href="{{ path('kunde_show', { 'kundenr': kunde.kundenr }) }}">{{ kunde.kundename }}</a></td>
-                <td>{{ kunde.kundevorname }}</td>
-                <td>{{ kunde.kundeadresse }}</td>
-                <td>{{ kunde.kundelieferhinweis }}</td>
-                <td>{{ kunde.kundenr }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('kunde_show', { 'kundenr': kunde.kundenr }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('kunde_edit', { 'kundenr': kunde.kundenr }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('kunde_new') }}">Create a new kunde</a>
-        </li>
-    </ul>
+    <div class="box">
+        <div class="box-header with-border">
+            <h1 class="box-title" >Kunden Liste</h1>
+        </div>
+        <div class="box-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Kundename</th>
+                        <th>Kundevorname</th>
+                        <th>Kundeadresse</th>
+                        <th>Kundelieferhinweis</th>
+                        <th>Kundenr</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for kunde in kundes %}
+                        <tr>
+                            <td><a href="{{ path('kunde_show', { 'kundenr': kunde.kundenr }) }}">{{ kunde.kundename }}</a></td>
+                            <td>{{ kunde.kundevorname }}</td>
+                            <td>{{ kunde.kundeadresse }}</td>
+                            <td>{{ kunde.kundelieferhinweis }}</td>
+                            <td>{{ kunde.kundenr }}</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('kunde_show', { 'kundenr': kunde.kundenr }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('kunde_edit', { 'kundenr': kunde.kundenr }) }}">edit</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <ul>
+                <li>
+                    <a href="{{ path('kunde_new') }}">Create a new kunde</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

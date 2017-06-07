@@ -4,7 +4,7 @@ mitarbeiter_index:
     methods:  GET
 
 mitarbeiter_show:
-    path:     /{mitarbeiternr}/show
+    path:     /{mitarbeiterid}/show
     defaults: { _controller: "TEmmaBundle:Mitarbeiter:show" }
     methods:  GET
 
@@ -14,11 +14,11 @@ mitarbeiter_new:
     methods:  [GET, POST]
 
 mitarbeiter_edit:
-    path:     /{mitarbeiternr}/edit
+    path:     /{mitarbeiterid}/edit
     defaults: { _controller: "TEmmaBundle:Mitarbeiter:edit" }
     methods:  [GET, POST]
 
 mitarbeiter_delete:
-    path:     /{mitarbeiternr}/delete
+    path:     /{mitarbeiterid}/delete
     defaults: { _controller: "TEmmaBundle:Mitarbeiter:delete" }
     methods:  DELETE

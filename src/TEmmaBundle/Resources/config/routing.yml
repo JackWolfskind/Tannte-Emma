@@ -13,15 +13,15 @@ t_emma_geschaeftsart:
 t_emma_geschaefte:
         resource: "@TEmmaBundle/Resources/config/routing/geschaefte.yml"
         prefix:   /geschaefte
-
-
 t_emma_kunde:
         resource: "@TEmmaBundle/Resources/config/routing/kunde.yml"
         prefix:   /kunde
-
 t_emma:
     path:   "/"
     defaults:  { _controller: TEmmaBundle:Default:index}
 login:
     path: "/login"
     defaults:  { _controller: TEmmaBundle:Secuity:login}
+t_emma_search:
+    path: "/search/"
+    defaults:  { _controller: TEmmaBundle:Default:search}

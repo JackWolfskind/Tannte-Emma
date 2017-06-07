@@ -1,36 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Geschaefte</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Geschaeftecol</th>
-                <td>{{ geschaefte.geschaeftecol }}</td>
-            </tr>
-            <tr>
-                <th>Datum</th>
-                <td>{{ geschaefte.datum }}</td>
-            </tr>
-            <tr>
-                <th>Geschaeftid</th>
-                <td>{{ geschaefte.geschaeftid }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('geschaefte_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('geschaefte_edit', { 'geschaeftid': geschaefte.geschaeftid }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="box">
+        <div class="box-header with-border">
+            <h1 class="box-title" >Geschaeft</h1>
+        </div>
+        <div class="box-body">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Art</th>
+                        <td>{{ geschaefte.geschaeftsart }}</td>
+                    </tr>
+                    <tr>
+                        <th>Datum</th>
+                        <td>{{ geschaefte.datum | date("d/m/Y")}}</td>
+                    </tr>
+                    <tr>
+                        <th>Bearbeiter</th>
+                        <td><a href="{{ path('mitarbeiter_show', { 'mitarbeiterid': mitarbeiter.mitarbeiterid }) }}">{{mitarbeiter.mitarbeiterid}}</a></td>
+                    </tr>
+                    <tr>
+                        <th>Kunde</th>
+                        <th><a href="{{ path('kunde_show', { 'kundenr': kunde.kundenr }) }}">{{kunde.kundename}},{{kunde.kundevorname}}</a></th></th>
+                    </tr>
+                </tbody>
+            </table>
+            <ul>
+                <li>
+                    <a href="{{ path('geschaefte_index') }}">Back to the list</a>
+                </li>
+                <li>
+                    <a href="{{ path('geschaefte_edit', { 'geschaeftid': geschaefte.geschaeftid }) }}">Edit</a>
+                </li>
+                <li>
+                    {{ form_start(delete_form) }}
+                    <input type="submit" value="Delete">
+                    {{ form_end(delete_form) }}
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

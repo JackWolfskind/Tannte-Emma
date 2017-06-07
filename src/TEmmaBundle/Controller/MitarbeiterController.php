@@ -39,10 +39,15 @@ class MitarbeiterController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $mitarbeiter->createID();
+            
+            $password = $this->get('security.password_encoder')->encodePassword($mitarbeiter, $mitarbeiter->getPasswd());
+            $mitarbeiter->setPasswd($password);
+            
             $em->persist($mitarbeiter);
             $em->flush();
 
-            return $this->redirectToRoute('mitarbeiter_show', array('mitarbeiternr' => $mitarbeiter->getMitarbeiternr()));
+            return $this->redirectToRoute('mitarbeiter_show', array('mitarbeiterid' => $mitarbeiter->getMitarbeiterid()));
         }
 
         return $this->render('mitarbeiter/new.html.twig', array(
@@ -78,7 +83,7 @@ class MitarbeiterController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('mitarbeiter_edit', array('mitarbeiternr' => $mitarbeiter->getMitarbeiternr()));
+            return $this->redirectToRoute('mitarbeiter_edit', array('mitarbeiterid' => $mitarbeiter->getMitarbeiterid()));
         }
 
         return $this->render('mitarbeiter/edit.html.twig', array(
@@ -116,7 +121,7 @@ class MitarbeiterController extends Controller
     private function createDeleteForm(Mitarbeiter $mitarbeiter)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('mitarbeiter_delete', array('mitarbeiternr' => $mitarbeiter->getMitarbeiternr())))
+            ->setAction($this->generateUrl('mitarbeiter_delete', array('mitarbeiterid' => $mitarbeiter->getMitarbeiterid())))
             ->setMethod('DELETE')
             ->getForm()
         ;

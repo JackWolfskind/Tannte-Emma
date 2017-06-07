@@ -13,7 +13,7 @@ class PostenType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('artikelmenge')->add('artikelnr')->add('geschäftid');
+        $builder->add('artikelmenge')->add('artikelnr');
     }
     
     /**
@@ -22,7 +22,8 @@ class PostenType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'TEmmaBundle\Entity\Posten'
+            'data_class' => 'TEmmaBundle\Entity\Posten',
+            'allow_add'    => true,
         ));
     }
 

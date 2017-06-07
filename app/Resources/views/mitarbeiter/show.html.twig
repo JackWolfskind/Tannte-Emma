@@ -6,12 +6,12 @@
     <table>
         <tbody>
             <tr>
-                <th>Mitarbeitername</th>
-                <td>{{ mitarbeiter.mitarbeitername }}</td>
+                <th>Mitarbeiterid</th>
+                <td>{{ mitarbeiter.mitarbeiterid }}</td>
             </tr>
             <tr>
-                <th>Mitarbeitervorname</th>
-                <td>{{ mitarbeiter.mitarbeitervorname }}</td>
+                <th>Mitarbeitername</th>
+                <td>{{ mitarbeiter.mitarbeitervorname }} {{ mitarbeiter.mitarbeitername }}</td>
             </tr>
             <tr>
                 <th>Mitarbeitertelefon</th>
@@ -21,10 +21,6 @@
                 <th>Mitarbeiteradresse</th>
                 <td>{{ mitarbeiter.mitarbeiteradresse }}</td>
             </tr>
-            <tr>
-                <th>Mitarbeiternr</th>
-                <td>{{ mitarbeiter.mitarbeiternr }}</td>
-            </tr>
         </tbody>
     </table>
 
@@ -33,7 +29,7 @@
             <a href="{{ path('mitarbeiter_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('mitarbeiter_edit', { 'mitarbeiternr': mitarbeiter.mitarbeiternr }) }}">Edit</a>
+            <a href="{{ path('mitarbeiter_edit', { 'mitarbeiterid': mitarbeiter.mitarbeiterid }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

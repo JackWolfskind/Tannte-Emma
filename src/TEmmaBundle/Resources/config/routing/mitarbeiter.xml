@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="mitarbeiter_index" path="/" methods="GET">
+        <default key="_controller">TEmmaBundle:Mitarbeiter:index</default>
+    </route>
+
+    <route id="mitarbeiter_show" path="/{mitarbeiterid}/show" methods="GET">
+        <default key="_controller">TEmmaBundle:Mitarbeiter:show</default>
+    </route>
+
+    <route id="mitarbeiter_new" path="/new" methods="GET|POST">
+        <default key="_controller">TEmmaBundle:Mitarbeiter:new</default>
+    </route>
+
+    <route id="mitarbeiter_edit" path="/{mitarbeiterid}/edit" methods="GET|POST">
+        <default key="_controller">TEmmaBundle:Mitarbeiter:edit</default>
+    </route>
+
+    <route id="mitarbeiter_delete" path="/{mitarbeiterid}/delete" methods="DELETE">
+        <default key="_controller">TEmmaBundle:Mitarbeiter:delete</default>
+    </route>
+
+</routes>

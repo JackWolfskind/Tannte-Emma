@@ -10,4 +10,5 @@ namespace TEmmaBundle\Repository;
  */
 class GeschaeftsartRepository extends \Doctrine\ORM\EntityRepository
 {
+    
 }

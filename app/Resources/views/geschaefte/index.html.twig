@@ -1,41 +1,48 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
-    <h1>Geschaeftes list</h1>
+    <div class="box">
+        <div class="box-header with-border">
+            <h1 class="box-title" >Geschaeftes list</h1>
+        </div>
+        <div class="box-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Datum</th>
+                        <th>Art</th>
+                        <th>Bearbeiter</th>
+                        <th>Kunde</th>
+                        <th>Actions</th>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Geschaeftecol</th>
-                <th>Datum</th>
-                <th>Geschaeftid</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for geschaefte in geschaeftes %}
-            <tr>
-                <td><a href="{{ path('geschaefte_show', { 'geschaeftid': geschaefte.geschaeftid }) }}">{{ geschaefte.geschaeftecol }}</a></td>
-                <td>{{ geschaefte.datum }}</td>
-                <td>{{ geschaefte.geschaeftid }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('geschaefte_show', { 'geschaeftid': geschaefte.geschaeftid }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('geschaefte_edit', { 'geschaeftid': geschaefte.geschaeftid }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for geschaefte in geschaeftes %}
+                        <tr>
+                            <td><a href="{{ path('geschaefte_show', { 'geschaeftid': geschaefte.geschaeftid }) }}">{{ geschaefte.datum | date("d/m/Y")}}</a></td>
+                            <td>{{ geschaefte.geschaeftsart }}</td>
+                            <td>{{ geschaefte.angelegtvon }}</td>
+                            <td><a href="{{ path('kunde_show', { 'kundenr': geschaefte.kundenr }) }}">Kunde</a></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('geschaefte_show', { 'geschaeftid': geschaefte.geschaeftid }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('geschaefte_edit', { 'geschaeftid': geschaefte.geschaeftid }) }}">edit</a>
+                                    </li>
 
-    <ul>
-        <li>
-            <a href="{{ path('geschaefte_new') }}">Create a new geschaefte</a>
-        </li>
-    </ul>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <ul>
+                <li>
+                    <a href="{{ path('geschaefte_new') }}">Create a new geschaefte</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}
