@@ -14,13 +14,11 @@
 {#               {{ form_widget(form.posten.vars.prototype.artikelmenge)|e }}
                {{ form_widget(form.posten.vars.prototype.artikelnr)|e }}#}
             </ul>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Create" class="btn btn-success btn-block" style="margin-top: 6px; margin-bottom: 6px;"/>
             {{ form_end(form) }}
-            <ul>
-                <li>
-                    <a href="{{ path('geschaefte_index') }}">Back to the list</a>
-                </li>
-            </ul>
+            
+                    <a href="{{ path('geschaefte_index') }}" class="btn btn-block btn-info">Back to the list</a>
+                
         </div>
     </div>
 {% endblock %}
