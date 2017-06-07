@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Mitarbeiter</h1>
 
-    <table>
+    <table class="table table-bordered">
         <tbody>
             <tr>
                 <th>Mitarbeiterid</th>
@@ -24,17 +24,14 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('mitarbeiter_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('mitarbeiter_edit', { 'mitarbeiterid': mitarbeiter.mitarbeiterid }) }}">Edit</a>
-        </li>
-        <li>
+    
+            <a href="{{ path('mitarbeiter_index') }}" class="btn btn-block btn-info">Back to the list</a>
+       
+       
+            <a href="{{ path('mitarbeiter_edit', { 'mitarbeiterid': mitarbeiter.mitarbeiterid }) }}" class="btn btn-block btn-warning">Edit</a>
+        
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Delete" class="btn btn-block btn-danger" style="margin-top: 6px;">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    
 {% endblock %}
