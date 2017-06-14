@@ -8,14 +8,12 @@
         <div class="box-body">
             {{ form_start(form) }}
             {{ form_widget(form) }}
-            <input type="submit" value="Create" />
+            <input type="submit" value="Create" class="btn btn-block btn-success" style="margin-bottom: 6px;"/>
             {{ form_end(form) }}
 
-            <ul>
-                <li>
-                    <a href="{{ path('kunde_index') }}">Back to the list</a>
-                </li>
-            </ul>
+            
+                    <a href="{{ path('kunde_index') }}" class="btn btn-block btn-info">Back to the list</a>
+                <
         </div>
     </div>
 {% endblock %}

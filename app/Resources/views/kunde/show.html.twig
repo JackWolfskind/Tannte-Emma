@@ -32,14 +32,14 @@
             </table>
             <ul>
                 <li>
-                    <a href="{{ path('kunde_index') }}">Back to the list</a>
+                    <a href="{{ path('kunde_index') }}" class="btn btn-block btn-info">Back to the list</a>
                 </li>
                 <li>
-                    <a href="{{ path('kunde_edit', { 'kundenr': kunde.kundenr }) }}">Edit</a>
+                    <a href="{{ path('kunde_edit', { 'kundenr': kunde.kundenr }) }}" class="btn btn-block btn-warning">Edit</a>
                 </li>
                 <li>
                     {{ form_start(delete_form) }}
-                    <input type="submit" value="Delete">
+                    <input type="submit" value="Delete" class="btn btn-block btn-danger" style="margin-top: 6px">
                     {{ form_end(delete_form) }}
                 </li>
             </ul>

@@ -25,14 +25,11 @@
                             <td>{{ kunde.kundelieferhinweis }}</td>
                             <td>{{ kunde.kundenr }}</td>
                             <td>
-                                <ul>
-                                    <li>
-                                        <a href="{{ path('kunde_show', { 'kundenr': kunde.kundenr }) }}">show</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('kunde_edit', { 'kundenr': kunde.kundenr }) }}">edit</a>
-                                    </li>
-                                </ul>
+                                <div class="btn-group" role="group">
+                                        <a href="{{ path('kunde_show', { 'kundenr': kunde.kundenr }) }}" class="btn btn-sm btn-info">show</a>
+                                   
+                                        <a href="{{ path('kunde_edit', { 'kundenr': kunde.kundenr }) }}" class="btn btn-sm btn-warning">edit</a>
+                                </div>   
                             </td>
                         </tr>
                     {% endfor %}
@@ -40,7 +37,7 @@
             </table>
             <ul>
                 <li>
-                    <a href="{{ path('kunde_new') }}">Create a new kunde</a>
+                    <a href="{{ path('kunde_new') }}" class="btn btn-block btn-success">Create a new kunde</a>
                 </li>
             </ul>
         </div>
