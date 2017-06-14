@@ -5,6 +5,7 @@ namespace TEmmaBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class PostenType extends AbstractType
 {
@@ -13,7 +14,10 @@ class PostenType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('artikelmenge')->add('artikelnr');
+        $builder
+                ->add('artikelnr', ChoiceType::class, array('label' => 'Artikel'))
+                ->add('geschaeftid', ChoiceType::class, array('label' => 'Geschäft'))
+                ->add('artikelmenge');
     }
     
     /**

@@ -18,7 +18,7 @@ class GeschaefteType extends AbstractType
         $builder
                 ->add('datum')
                 ->add('geschaeftsart')
-                ->add('kundenr')
+                ->add('kundenr', ChoiceType::class, array('label' => 'Kunde'))
                 ->add('angelegtvon')
                 ->add('posten', CollectionType::class,array(
                     'entry_type' => PostenType::class,
@@ -45,6 +45,5 @@ class GeschaefteType extends AbstractType
     {
         return 'temmabundle_geschaefte';
     }
-
 
 }
