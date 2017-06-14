@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class PostenType extends AbstractType
 {
@@ -15,8 +16,8 @@ class PostenType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-                ->add('artikelnr', ChoiceType::class, array('label' => 'Artikel'))
-                ->add('geschaeftid', ChoiceType::class, array('label' => 'Geschäft'))
+                ->add('artikelnr', EntityType::class, array('label' => 'Artikel', 'class' => 'TEmmaBundle\Entity\Artikel'))
+                ->add('geschaeftid', EntityType::class, array('label' => 'Geschäft', 'class' => 'TEmmaBundle\Entity\Geschaefte'))
                 ->add('artikelmenge');
     }
     

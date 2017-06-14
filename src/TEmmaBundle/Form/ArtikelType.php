@@ -5,6 +5,7 @@ namespace TEmmaBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 
 class ArtikelType extends AbstractType
 {
@@ -13,7 +14,10 @@ class ArtikelType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('artikelbezeichnung')->add('artikelpreis')->add('artikelbestand');
+        $builder
+                ->add('artikelbezeichnung')
+                ->add('artikelpreis', MoneyType::class, array('label' => 'Preis in €'))
+                ->add('artikelbestand');
     }
     
     /**

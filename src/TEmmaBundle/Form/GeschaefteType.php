@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class GeschaefteType extends AbstractType
 {
@@ -18,8 +19,8 @@ class GeschaefteType extends AbstractType
         $builder
                 ->add('datum')
                 ->add('geschaeftsart')
-                ->add('kundenr', ChoiceType::class, array('label' => 'Kunde'))
-                ->add('angelegtvon')
+                ->add('kundenr', EntityType::class, array('label' => 'Kunde', 'class' => 'TEmmaBundle\Entity\Kunde'))
+                ->add('angelegtvon', EntityType::class, array('label' => 'Mitarbeiter', 'class' => 'TEmmaBundle\Entity\Mitarbeiter'))
                 ->add('posten', CollectionType::class,array(
                     'entry_type' => PostenType::class,
                     'allow_add'  => true,
